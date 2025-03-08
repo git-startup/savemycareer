@@ -11,8 +11,6 @@ function ClientScript() {
   const hotjarVersion = 6
  
   useEffect(() => {
-    // initialize bootstrap 
-    require('bootstrap/dist/js/bootstrap.min.js')
     // initialize hotjar services
     // hotjar.initialize(siteId, hotjarVersion)
     // initialize google services
