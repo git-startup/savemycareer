@@ -14,11 +14,12 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Removed the prefers-color-scheme media query to force light theme as default */
+
+/* You can add a class-based theme toggle instead */
+.dark-theme {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 /* Base styles */
