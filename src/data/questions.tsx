@@ -8,8 +8,16 @@ export interface Question {
 export interface fieldsQuestion {
   id: string;
   title: string;
-  fields: Object[];
+  fields: Field[];
 }
+
+export type Field = {
+  type: string;
+  name: string;
+  label: string;
+  placeholder?: string;  // Optional since not all fields have it
+  options?: string[];    // Optional for select fields
+};
 
 export const fieldsQuestions: fieldsQuestion[] = [
   {

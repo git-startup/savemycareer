@@ -9,7 +9,6 @@ import { useTranslations, useLocale } from "next-intl";
 export default function LandingPage() {
 
   const t = useTranslations('HomePage');
-  const locale = useLocale();
  
   return (
     <div className="min-h-screen bg-background text-foreground">

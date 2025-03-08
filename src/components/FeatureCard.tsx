@@ -1,6 +1,13 @@
 import { useLocale } from "next-intl";
+import { ReactNode } from "react";
 
-export default function FeatureCard({ icon, title, description }) {
+interface FeatureCardProps {
+  icon: ReactNode;
+  title: string;
+  description: string;
+}
+
+export default function FeatureCard({ icon, title, description }: FeatureCardProps) {
   const locale = useLocale();
   const isArabic = locale === "ar";
 

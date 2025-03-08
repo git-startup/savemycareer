@@ -23,15 +23,19 @@ export default function Header() {
   const router = useRouter();
   const params = useParams();
 
-  const changeLang = (e: any) => {
+  const changeLang = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    const nextLocale = e.target.getAttribute('data-locale');
-    startTransition(() => {
-      router.replace(
-        {pathname, params},
-        {locale: nextLocale}
-      );
-    })
+    const nextLocale = e.currentTarget.getAttribute('data-locale');
+    // Make sure nextLocale is not null before using it
+    if (nextLocale) {
+      startTransition(() => {
+        // Fix: Correctly use the router.replace method based on next-intl routing
+        router.replace(
+          pathname,
+          { locale: nextLocale }
+        );
+      });
+    }
   }
 
   return (

@@ -23,7 +23,7 @@ const tajawal = Tajawal({
 });
 
 export function generateStaticParams() {
-  return routing.locales.map((locale: any) => ({locale}));
+  return routing.locales.map((locale: string) => ({locale}));
 } 
 
 export const metadata: Metadata = {

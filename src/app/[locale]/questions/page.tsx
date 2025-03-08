@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import {useRouter} from '@/i18n/routing'; 
 import Header from '@/components/Header';
-import { questions, arQuestions, fieldsQuestions, arFieldsQuestions, Question } from '@/data/questions';
+import { questions, arQuestions, fieldsQuestions, arFieldsQuestions, Question, Field } from '@/data/questions';
 import { careers, arCareers } from '@/data/careers';
 import { locations, arLocations } from '@/data/locations';
 import { useTranslations, useLocale } from "next-intl";
@@ -189,9 +189,9 @@ export default function QuestionsPage() {
               {question.title}
             </h2>
             
-            {currentQuestion === 0 ? (
+            {currentQuestion === 0 ? ( 
               <div className="space-y-6">
-                {initialQuestion.fields.map((field: any, index: number) => (
+                {initialQuestion.fields.map((field: Field, index: number) => (
                   <div key={index} className="space-y-2">
                     <label className={`block text-sm font-medium text-gray-700 dark:text-gray-300 ${locale === 'ar' ? 'text-right' : ''}`}>
                       {field.label}
@@ -262,7 +262,7 @@ export default function QuestionsPage() {
                                  dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${locale === 'ar' ? 'text-right' : ''}`}
                       >
                         <option value="">{t("select_an_option")}</option>
-                        {field.options.map((option: string, i: number) => (
+                        {field.options && field.options.map((option: string, i: number) => (
                           <option key={i} value={option}>
                             {option}
                           </option>
