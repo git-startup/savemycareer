@@ -1,0 +1,107 @@
+{
+    "Header": {
+        "title": "Save My Career",
+        "home": "Home",
+        "assessment": "Assessment"
+    },
+    "HomePage": {
+        "title_one": " Will AI Replace",
+        "title_two": "Your Job ",
+        "bio": "Take our assessment to discover how artificial intelligence might impact your career, and learn actionable strategies to stay ahead in the age of automation.",
+        "action_btn": "Find How AI Will Replace Your Work",
+        "action_label": "12 questions • 5 minute assessment",
+        "feature_one_title": "Personalized Risk Analysis",
+        "feature_one_bio": "Get a tailored assessment of how vulnerable your career is to AI automation.",
+        "feature_two_title": "Actionable Strategies",
+        "feature_two_bio": "Discover practical tips to future-proof your career in the age of AI.",
+        "feature_three_title": "AI Adaptation Guide",
+        "feature_three_bio": "Learn how to leverage AI as a tool to enhance your productivity and career growth."
+    },
+
+    "QuestionsPage": {
+      "about_you": "About You",
+      "question": "Question",
+      "of": "of",
+      "select_an_option": "Select an option",
+      "next": "Next",
+      "previous": "Previous",
+      "see_results": "See Results"
+    },
+
+    
+    "ResultsPage": {
+        "title": "Your AI Career Assessment Results",
+        "no_results": "No assessment results found. Please take the assessment first.",
+        "take_assessment_btn": "Take Assessment",
+        "user_info_title": "Your Information",
+        "career": "Career",
+        "location": "Location",
+        "experience": "Years of Experience",
+        "assessment_means_title": "What This Assessment Means",
+        "assessment_means_bio": "Based on your responses, we've analyzed how likely your job role is to be affected by AI automation: ",
+        "recommendation_title": "Recommendations for You",
+        "next_steps_title": "Next Steps",
+        "next_steps_bio": "Here are some strategies to help you stay ahead in the age of AI:",
+        "skill_development_title": "Skill Development",
+        "skill_development_bio": "Focus on building skills that are difficult to automate, such as critical thinking, creativity, and emotional intelligence.",
+        "ai_literacy_title": "AI Literacy",
+        "ai_literacy_bio": "Learn about AI capabilities and limitations to better understand how you can work alongside AI tools.",
+        "career_pivoting_title": "Career Pivoting",
+        "career_pivoting_bio": "Consider related fields that require more human judgment and complex decision-making abilities.",
+        "continuous_learning_title": "Continuous Learning",
+        "continuous_learning_bio": "Stay updated with industry trends and be proactive about learning new technologies.",
+        "back_home_btn": "Back to Home",
+        "newsletter_title": "Stay Updated with Career Tips",
+        "newsletter_description": "Subscribe to receive weekly updates and daily tips to help you stay ahead of AI in your industry.",
+        "name_label": "Full Name",
+        "name_placeholder": "Enter your full name",
+        "email_label": "Email Address",
+        "email_placeholder": "Enter your email address",
+        "consent_text": "I agree to receive career tips and industry updates by email.",
+        "subscribe_btn": "Subscribe",
+        "newsletter_success": "Thank you for subscribing! You'll start receiving career tips soon.",
+        "newsletter_error": "There was an error with your subscription. Please try again.",
+        
+        "risk_levels": {
+          "high_risk": "High Risk",
+          "moderate_risk": "Moderate Risk",
+          "low_risk": "Low Risk"
+        },
+        
+        "risk_explanations": {
+          "high_risk": "This suggests your current role contains many tasks that could be automated by AI in the coming years.",
+          "moderate_risk": "This indicates that while some aspects of your job may be automated, your human expertise will remain valuable.",
+          "low_risk": "This suggests your role requires uniquely human capabilities that AI will find difficult to replicate."
+        },
+        
+        "messages": {
+          "high_risk_message": "Your job has many characteristics that make it susceptible to AI automation.",
+          "moderate_risk_message": "Parts of your job may be automated, but human expertise will likely remain valuable.",
+          "low_risk_message": "Your job involves many elements that are difficult for AI to replicate.",
+          "no_answers": "We couldn't determine your AI replacement risk because no questions were answered."
+        },
+        
+        "tips": {
+          "try_answering": "Try answering the questions to get a personalized assessment.",
+          
+          "high_risk_tip_1": "Focus on developing skills that AI currently struggles with, like creative problem-solving and emotional intelligence.",
+          "high_risk_tip_2": "Learn how to use AI tools to enhance your productivity rather than compete with them.",
+          "high_risk_tip_3": "Consider transitioning to roles that require more human judgment and interpersonal skills.",
+          "high_risk_tip_4": "Stay updated on AI developments in your field to anticipate changes.",
+          "high_risk_tip_5": "Pursue continuous education in emerging technologies to remain relevant.",
+          
+          "moderate_risk_tip_1": "Identify which aspects of your role are most vulnerable to automation and which require uniquely human skills.",
+          "moderate_risk_tip_2": "Learn to collaborate effectively with AI tools to increase your productivity and value.",
+          "moderate_risk_tip_3": "Develop your expertise in areas where human judgment and creativity add the most value.",
+          "moderate_risk_tip_4": "Build skills in managing and interpreting AI outputs rather than producing what AI can generate.",
+          "moderate_risk_tip_5": "Focus on relationship-building and complex problem-solving that AI cannot easily replicate.",
+          
+          "low_risk_tip_1": "While your job is less likely to be fully automated, use AI tools to handle routine aspects and focus on high-value work.",
+          "low_risk_tip_2": "Stay ahead by learning how AI can complement your skills and make you more effective.",
+          "low_risk_tip_3": "Develop expertise in directing and managing AI systems to further enhance your value.",
+          "low_risk_tip_4": "Continue strengthening uniquely human capabilities like empathy, creativity, and adaptability.",
+          "low_risk_tip_5": "Mentor others in how to adapt to technological changes within your field."
+        }
+      }
+
+} 

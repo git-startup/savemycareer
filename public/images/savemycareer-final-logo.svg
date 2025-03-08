@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200">
+  <!-- Background (transparent) -->
+  <rect width="500" height="200" fill="transparent"/>
+  
+  <!-- Career Path Line -->
+  <path 
+    d="M40,120 C80,100 120,110 160,90 C200,70 240,80 280,60 C320,40 360,50 400,30" 
+    stroke="#4361ee" 
+    strokeWidth="12" 
+    fill="none" 
+    strokeLinecap="round"
+  />
+  
+  <!-- Data Points -->
+  <circle cx="40" cy="120" r="8" fill="#4361ee"/>
+  <circle cx="160" cy="90" r="8" fill="#4361ee"/>
+  <circle cx="280" cy="60" r="8" fill="#4361ee"/>
+  <circle cx="400" cy="30" r="8" fill="#4361ee"/>
+  
+  <!-- AI Circuit Element -->
+  <g transform="translate(220, 75)">
+    <circle cx="0" cy="0" r="30" fill="#4361ee" opacity="0.2"/>
+    <circle cx="0" cy="0" r="20" fill="#4361ee" opacity="0.3"/>
+    <path d="M-15,-15 L15,15 M-15,15 L15,-15" stroke="#4361ee" strokeWidth="4"/>
+    <path d="M0,-20 L0,-30 M0,20 L0,30 M-20,0 L-30,0 M20,0 L30,0" stroke="#4361ee" strokeWidth="2.5"/>
+  </g>
+  
+  <!-- Text Elements -->
+  <text x="250" y="170" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="40">
+    <tspan fill="#4361ee">Save</tspan><tspan fill="#3a0ca3">My</tspan><tspan fill="#4361ee">Career</tspan><tspan fill="#3a0ca3">.ai</tspan>
+  </text>
+</svg>
