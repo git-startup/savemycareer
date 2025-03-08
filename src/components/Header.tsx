@@ -85,12 +85,15 @@ export default function Header() {
 
         {/* Navigation Links */}
         <nav className="flex items-center space-x-6">
+          {/*
           <Link href="/" className="hover:text-blue-500 transition-colors">
             {t('home')}
           </Link>
+          
           <Link href="/questions" className="hover:text-blue-500 transition-colors">
             {t('assessment')}
-          </Link>
+          </Link>]
+          *}
 
           {/* Language Switcher */}
           <Link href="#" data-locale={switchTo} onClick={changeLang} className="flex items-center space-x-2">
