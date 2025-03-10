@@ -4,6 +4,8 @@ import { QuestionsProvider } from '@/context/QuestionsContext';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {routing} from '@/i18n/routing'; 
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { Analytics } from '@vercel/analytics/react';
 import "../globals.css";
 
 const geistSans = Geist({
@@ -49,6 +51,8 @@ export default async function RootLayout({
       <body className={`${ locale == 'ar' ? 'ar' : geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           {children}
+          <GoogleAnalytics />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
