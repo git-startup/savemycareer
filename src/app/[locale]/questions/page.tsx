@@ -302,7 +302,7 @@ export default function QuestionsPage() {
                         onChange={() => handleAnswerSelect((question as Question).id, index)}
                         className="h-4 w-4 text-blue-500" 
                       />
-                      <span className={`text-gray-700 ${locale === 'ar' ? 'mr-3' : 'ml-3'}`}>
+                      <span className={`text-gray-700 ${locale === 'ar' ? 'mr-3 text-right' : 'ml-3'}`}>
                         {option}
                       </span>
                     </label>
