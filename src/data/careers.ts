@@ -1,5 +1,5 @@
 export const careers: string[] = [
-    "Software Engineer", "Data Scientist", "Web Developer", "UX Designer", 
+    "Software Engineer", "Programmer", "Data Scientist", "Web Developer", "UX Designer", 
     "Product Manager", "Marketing Specialist", "Financial Analyst", "Accountant",
     "Teacher", "Nurse", "Doctor", "Surgeon", "Pharmacist", "Dentist", "Psychologist",
     "Lawyer", "Judge", "Writer", "Journalist", "Graphic Designer", "Photographer",
@@ -17,7 +17,7 @@ export const careers: string[] = [
   ];
 
   export const arCareers: string[] = [
-    "مهندس برمجيات", "عالم بيانات", "مطوّر ويب", "مصمم تجربة المستخدم", 
+    "مهندس برمجيات", "مبرمج", "عالم بيانات", "مطوّر ويب", "مصمم تجربة المستخدم", 
     "مدير منتج", "أخصائي تسويق", "محلل مالي", "محاسب",
     "معلم", "ممرض", "طبيب", "جراح", "صيدلي", "طبيب أسنان", "أخصائي نفسي",
     "محام", "قاض", "كاتب", "صحفي", "مصمم جرافيك", "مصور فوتوغرافي",

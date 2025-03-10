@@ -61,6 +61,18 @@
         "subscribe_btn": "Subscribe",
         "newsletter_success": "Thank you for subscribing! You'll start receiving career tips soon.",
         "newsletter_error": "There was an error with your subscription. Please try again.",
+
+        "get_full_insights_title": "Enter Your Email to Get Personalized Recommendations",
+        "get_full_insights_description": "Based on your assessment results, we've prepared valuable insights specifically for you. To receive your personalized recommendations, next steps, and ongoing industry updates, please provide your email address below.",
+        "email_benefits": "We'll send you:",
+        "detailed_recommendations": "Custom recommendations tailored to your assessment results",
+        "industry_trends": "Regular updates on AI trends affecting your career field",
+        "skill_development": "Opportunities to develop competitive skills in your industry",
+        "career_strategies": "Strategic advice to navigate your career in the age of AI",
+        "get_insights_btn": "Send Me My Recommendations",
+        "skip_for_now": "Maybe Later",
+        "thank_you_title": "Thank You for Subscribing!",
+        "thank_you_message": "We've received your information. Your personalized recommendations and AI career insights will be sent to your email shortly.",
         
         "risk_levels": {
           "high_risk": "High Risk",
