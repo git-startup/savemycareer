@@ -31,6 +31,11 @@ export function generateStaticParams() {
 export const metadata: Metadata = {
   title: "SaveMyCareer.ai", 
   description: "Learn actionable strategies to stay ahead in the age of automation",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    // Add other sizes if needed
+  },
 };
 
 
