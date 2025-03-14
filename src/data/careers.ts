@@ -15,6 +15,7 @@ export const careers: string[] = [
     "AI Engineer", "Game Developer", "Voice Actor", "Translator", "Event Planner",
     "Public Relations Specialist", "Tour Guide", "Hotel Manager"
   ];
+  
 
   export const arCareers: string[] = [
     "مهندس برمجيات", "مبرمج", "عالم بيانات", "مطوّر ويب", "مصمم تجربة المستخدم", 
