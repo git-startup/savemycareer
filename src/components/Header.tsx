@@ -2,7 +2,7 @@
 
 import {Link} from '@/i18n/routing';
 import Image from 'next/image';
-import { useTransition } from 'react';
+import { useTransition, useState } from 'react';
 import {useParams} from 'next/navigation';
 import { useTranslations, useLocale } from "next-intl";
 import {usePathname, useRouter} from '@/i18n/routing'; 
@@ -12,13 +12,12 @@ export default function Header() {
   const t = useTranslations('Header'); 
   const pathname = usePathname();
   const isArabic = locale === 'ar';
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Get the opposite locale for switching
   const switchTo = isArabic ? 'en' : 'ar';
   const switchLabel = isArabic ? 'English' : 'العربية';
-  // Language icons
-  const langIcon = isArabic ? '/images/lang-en.png' : '/images/lang-ar.png';
-
+  
   const [ isPending, startTransition ] = useTransition();
   const router = useRouter();
   const params = useParams();
@@ -38,8 +37,12 @@ export default function Header() {
     }
   }
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  }
+
   return (
-    <header className="border-b border-gray-200 dark:border-gray-800">
+    <header className="border-b border-gray-200 dark:border-gray-800" dir={isArabic ? 'rtl' : 'ltr'}>
       <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo Container - Text-focused design */}
         <Link href="/" className="flex items-center">
@@ -83,25 +86,128 @@ export default function Header() {
           </svg>
         </Link>
 
-        {/* Navigation Links */}
-        <nav className="flex items-center space-x-6">
-          {/*
-          <Link href="/" className="hover:text-blue-500 transition-colors">
-            {t('home')}
-          </Link>
-          
-          <Link href="/questions" className="hover:text-blue-500 transition-colors">
-            {t('assessment')}
-          </Link>]
-          *}
+        {/* Mobile Menu Button */}
+        <button 
+          onClick={toggleMobileMenu}
+          className="md:hidden focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            className="h-6 w-6" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            {mobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
 
-          {/* Language Switcher */}
-          <Link href="#" data-locale={switchTo} onClick={changeLang} className="flex items-center space-x-2">
-            <Image src={langIcon} alt={switchLabel} width={24} height={24} />
-            <span className="text-sm">{switchLabel}</span>
-          </Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center">
+          <div className="flex items-center">
+            <Link href="/" className="px-4 hover:text-blue-500 transition-colors">
+              {t('home')}
+            </Link>
+            
+            <Link href="/questions" className="px-4 hover:text-blue-500 transition-colors">
+              {t('ai_impact')}
+            </Link>
+
+            <Link href="/career-finder" className="px-4 hover:text-blue-500 transition-colors">
+              {t('career_discovary')}
+            </Link>
+            
+            {/* Blog Link */}
+            <Link href="/blogs" className="px-4 hover:text-blue-500 transition-colors">
+              {t('blog')}
+            </Link>
+          </div>
+
+          {/* Enhanced Language Switcher - With proper spacing from nav links */}
+          <button 
+            data-locale={switchTo} 
+            onClick={changeLang} 
+            className={`flex items-center  cursor-pointer px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 text-blue-600 transition-colors ${isArabic ? 'mr-4' : 'ml-4'}`}
+          >
+            <span className={`flex w-5 h-5 overflow-hidden rounded-full border border-gray-200 ${isArabic ? 'ml-2' : 'mr-2'}`}>
+              <Image 
+                src={isArabic ? '/images/lang-en.png' : '/images/lang-ar.png'} 
+                alt={switchLabel} 
+                width={20} 
+                height={20}
+                className="object-cover"
+              />
+            </span>
+            <span className="text-sm font-medium">{switchLabel}</span>
+          </button>
         </nav>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-gray-200 dark:border-gray-800">
+          <div className="max-w-4xl mx-auto px-4 py-2 flex flex-col">
+            <Link 
+              href="/" 
+              className="py-2 hover:text-blue-500 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('home')}
+            </Link>
+            
+            <Link 
+              href="/questions" 
+              className="py-2 hover:text-blue-500 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('ai_impact')}
+            </Link>
+
+            <Link 
+              href="/career-finder" 
+              className="py-2 hover:text-blue-500 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('career_discovary')}
+            </Link>
+            
+            {/* Blog Link */}
+            <Link 
+              href="/blogs" 
+              className="py-2 hover:text-blue-500 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t('blog')}
+            </Link>
+
+            {/* Enhanced Mobile Language Switcher */}
+            <button 
+              data-locale={switchTo} 
+              onClick={(e) => {
+                changeLang(e);
+                setMobileMenuOpen(false);
+              }} 
+              className="flex items-center  cursor-pointer py-2 px-3 mt-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-600 transition-colors self-start"
+            >
+              <span className={`flex w-5 h-5 overflow-hidden rounded-full border border-gray-200 ${isArabic ? 'ml-2' : 'mr-2'}`}>
+                <Image 
+                  src={isArabic ? '/images/lang-en.png' : '/images/lang-ar.png'} 
+                  alt={switchLabel} 
+                  width={20} 
+                  height={20}
+                  className="object-cover"
+                />
+              </span>
+              <span className="text-sm font-medium">{switchLabel}</span>
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

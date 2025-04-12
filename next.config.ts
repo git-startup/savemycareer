@@ -4,7 +4,9 @@ const createNextIntlPlugin = require('next-intl/plugin');
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['iptvstreamline.com'],
+  },
 };
 
 // Fixed the variable name from "extConfig" to "nextConfig"

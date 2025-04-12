@@ -1,9 +1,12 @@
 {
     "Header": {
-        "title": "Save My Career",
-        "home": "Home",
-        "assessment": "Assessment"
+      "title": "Save My Career",
+      "home": "Home",
+      "ai_impact": "AI Impact",
+      "career_discovary": "Career Discovery",
+      "blog": "Blogs"
     },
+
     "HomePage": {
         "title_one": " Will AI Replace",
         "title_two": "Your Job ",
@@ -15,7 +18,36 @@
         "feature_two_title": "Actionable Strategies",
         "feature_two_bio": "Discover practical tips to future-proof your career in the age of AI.",
         "feature_three_title": "AI Adaptation Guide",
-        "feature_three_bio": "Learn how to leverage AI as a tool to enhance your productivity and career growth."
+        "feature_three_bio": "Learn how to leverage AI as a tool to enhance your productivity and career growth.",
+
+        "how_it_works": "How It Works",
+        "ai_impact_test_title": "AI Impact Assessment",
+        "ai_impact_test_description": "Discover how AI might impact your current career and learn strategies to adapt.",
+        "ai_impact_test_button": "Start AI Impact Test",
+        "career_finder_title": "Career Finder Test",
+        "career_finder_description": "Find the best new career path for you when AI transforms your industry.",
+        "career_finder_button": "Discover Your New Career",
+        "career_finder_label": "10 questions • 4 minute assessment",
+        "features_heading": "Why Use SaveMyCareer.ai"
+    },
+
+    "BlogPage": {
+      "title": "Our Blog",
+      "description": "Read our latest articles about career protection in the age of AI",
+      "loading": "Loading blog posts...",
+      "error_loading": "Failed to load blog posts. Please try again later.",
+      "no_posts": "No blog posts found.",
+      "read_more": "Read More"
+    },
+
+    "BlogPost": {
+      "back_to_blog": "Back to Blog",
+      "description": "Explore actionable strategies to stay ahead in the age of automation",
+      "loading": "Loading post...",
+      "error_loading": "Failed to load blog post. Please try again later.",
+      "post_not_found": "Blog post not found.",
+      "tags": "Tags",
+      "related_posts": "Related Posts"
     },
 
     "QuestionsPage": {
@@ -114,6 +146,56 @@
           "low_risk_tip_4": "Continue strengthening uniquely human capabilities like empathy, creativity, and adaptability.",
           "low_risk_tip_5": "Mentor others in how to adapt to technological changes within your field."
         }
-      }
+      },
 
+      "CareerFinderPage": {
+        "about_you": "About You",
+        "question": "Question",
+        "of": "of",
+        "select_an_option": "Select an option",
+        "next": "Next",
+        "previous": "Previous",
+        "see_results": "See Results",
+        "no_results": "No assessment results found. Please take the assessment first.",
+        "take_assessment_btn": "Take Assessment",
+        
+        "results_title": "Your Future Career Recommendations",
+        "user_info_title": "Your Information",
+        "current_field": "Current Field",
+        "education_level": "Education Level",
+        "tech_adaptability": "Technology Adaptability",
+        
+        "career_matches_title": "Top Career Matches for the AI Era",
+        "ai_resistance": "AI Resistance",
+        "growth_potential": "Growth Potential",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low",
+        "ai_resistant_high": "Highly AI-resistant",
+        "ai_resistant_medium": "Moderately AI-resistant",
+        "ai_resistant_low": "Less AI-resistant",
+        "education_required": "Education/Training Required",
+        "salary_range": "Salary Range",
+        "key_skills": "Key Skills",
+        
+        "next_steps_title": "Next Steps",
+        "next_steps_description": "To pursue one of these recommended careers, consider the following steps:",
+        "next_step_1": "Research specific training programs or courses related to your chosen field.",
+        "next_step_2": "Identify transferable skills from your current role that would apply to your new career.",
+        "next_step_3": "Connect with professionals already working in these fields through LinkedIn or industry events.",
+        "next_step_4": "Build a portfolio or projects that demonstrate your capabilities in this new area.",
+        
+        "career_roadmap_title": "Get Your Personalized Career Transition Roadmap",
+        "career_roadmap_description": "We'll send you a detailed roadmap with steps to transition into your ideal future-proof career, including recommended courses, skills to develop, and strategies for showcasing your expertise.",
+        "name_label": "Full Name",
+        "name_placeholder": "Enter your full name",
+        "email_label": "Email Address",
+        "email_placeholder": "Enter your email address",
+        "consent_text": "I agree to receive career transition guidance and resources by email.",
+        "get_roadmap_btn": "Send Me My Career Roadmap",
+        "skip_for_now": "Skip for now",
+        "thank_you_title": "Thank You!",
+        "career_finder_thank_you_message": "Your personalized career transition roadmap will be delivered to your inbox soon. We've included resources to help you start your journey toward a future-proof career.",
+        "back_home_btn": "Back to Home"
+      }
 } 

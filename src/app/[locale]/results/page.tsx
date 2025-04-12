@@ -156,6 +156,7 @@ export default function ResultsPage() {
       body: JSON.stringify({
         name,
         email,
+        assessmentType: 'risk-assessment',
         riskLevelKey,
         percentage,
         userInfo,
