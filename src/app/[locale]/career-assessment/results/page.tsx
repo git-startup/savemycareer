@@ -148,7 +148,7 @@ export default function ResultsPage() {
     const email = formData.get('email') as string;
     
     // Send user data to backend along with assessment results
-    fetch('/api/subscribe', {
+    fetch('/api/career-assessment', {  
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

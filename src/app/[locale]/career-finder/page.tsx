@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from '@/i18n/routing'; 
 import Header from '@/components/Header';
 import { careerFinderQuestions, arCareerFinderQuestions, careerFinderFieldsQuestions, arCareerFinderFieldsQuestions } from '@/data/careerFinderQuestions';
@@ -13,8 +13,21 @@ interface UserInfo {
 }
 
 interface Answers {
-  [key: number]: number;
+  [key: number | string]: number;  // Allow both number and string keys to accommodate both id types
 }
+
+// Use the same interface names as imported from your data file
+import { 
+  CareerFinderQuestion as ImportedCareerFinderQuestion,
+  CareerFinderFieldsQuestion as ImportedCareerFinderFieldsQuestion
+} from '@/data/careerFinderQuestions';
+
+// Type guard to check if a question has options
+const hasOptions = (q: ImportedCareerFinderQuestion | ImportedCareerFinderFieldsQuestion): q is ImportedCareerFinderQuestion => {
+  return 'options' in q;
+};
+
+
 
 export default function CareerFinderPage() {
   const t = useTranslations('CareerFinderPage');
@@ -149,7 +162,7 @@ export default function CareerFinderPage() {
                   </div>
                 ))}
               </div>
-            ) : (
+            ) : hasOptions(question) ? (
               // Render multiple choice options
               <div className="space-y-3">
                 {question.options.map((option, index) => {
@@ -175,6 +188,9 @@ export default function CareerFinderPage() {
                   );
                 })}
               </div>
+            ) : (
+              // Fallback if the question doesn't have options
+              <div>No options available</div>
             )}
             
             <div className={`mt-8 flex ${isRtl ? '' : 'flex-row-reverse'} justify-between`}>

@@ -27,7 +27,7 @@ export default function LandingPage() {
             
             {/* Assessment Buttons Section */}
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-              <Link href="/questions">
+              <Link href="/career-assessment">
                 <button className="bg-blue-500 cursor-pointer text-white font-medium py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors w-full sm:w-auto">
                   {t("ai_impact_test_button")}
                 </button>
@@ -53,19 +53,28 @@ export default function LandingPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* AI Impact Assessment */}
-              <div className="relative border border-gray-200 rounded-lg bg-white p-8 text-center">
-                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl font-bold">1</div>
-                <h3 className="text-2xl font-bold mb-4 mt-2">{t("ai_impact_test_title")}</h3>
-                <p className="text-gray-600 mb-6">{t("ai_impact_test_description")}</p>
-                <Link href="/questions">
-                  <button className="bg-blue-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-blue-600 transition-colors">
-                    {t("ai_impact_test_button")}
-                  </button>
-                </Link>
-              </div>
+              <div className="relative">
+                <div className="border-2 border-blue-500 rounded-lg rounded-lg bg-white p-8 text-center">
+                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl font-bold">1</div>
+                  <h3 className="text-2xl font-bold mb-4 mt-2">{t("ai_impact_test_title")}</h3>
+                  <p className="text-gray-600 mb-6">{t("ai_impact_test_description")}</p>
+                  <Link href="/career-assessment">
+                    <button className="bg-blue-500 text-white font-medium py-2 px-5 rounded-lg hover:bg-blue-600 transition-colors">
+                      {t("ai_impact_test_button")}
+                    </button>
+                  </Link>
+                </div>
               
+                {/* Arrow pointing to next step - visible only on desktop */}
+                <div className="hidden md:block absolute top-1/2 -right-12 transform -translate-y-1/2">
+                  <svg width="60" height="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 12L45 0v9H0v6h45v9z" fill="#4361ee" />
+                  </svg>
+                </div>
+              </div>
+
               {/* Career Finder */}
-              <div className="relative border border-gray-200 rounded-lg bg-white p-8 text-center">
+              <div className="relative border-2 border-indigo-600 rounded-lg bg-white p-8 text-center">
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-xl font-bold">2</div>
                 <h3 className="text-2xl font-bold mb-4 mt-2">{t("career_finder_title")}</h3>
                 <p className="text-gray-600 mb-6">{t("career_finder_description")}</p>

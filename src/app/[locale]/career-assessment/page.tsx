@@ -139,7 +139,7 @@ export default function QuestionsPage() {
       // For Next.js 13+ App Router, storing in localStorage instead of router query
       localStorage.setItem('aiAssessmentAnswers', JSON.stringify(answers));
       localStorage.setItem('aiAssessmentUserInfo', JSON.stringify(userInfo));
-      router.push('/results'); 
+      router.push('/career-assessment/results'); 
     }
   };
 

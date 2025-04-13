@@ -114,7 +114,7 @@ export default function Header() {
               {t('home')}
             </Link>
             
-            <Link href="/questions" className="px-4 hover:text-blue-500 transition-colors">
+            <Link href="/career-assessment" className="px-4 hover:text-blue-500 transition-colors">
               {t('ai_impact')}
             </Link>
 
@@ -161,7 +161,7 @@ export default function Header() {
             </Link>
             
             <Link 
-              href="/questions" 
+              href="/career-assessment" 
               className="py-2 hover:text-blue-500 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >

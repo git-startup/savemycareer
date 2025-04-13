@@ -16,12 +16,17 @@ interface BlogPost {
   }[];
 }
 
+interface RouteParams {
+  id: string;
+}
+
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<RouteParams> }
 ) {
   // Get the post ID from the route parameters
-  const postId = params.id;
+  const resolvedParams = await params;
+  const postId = resolvedParams.id;
   
   // Get locale from URL params
   const { searchParams } = new URL(request.url);

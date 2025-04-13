@@ -14,14 +14,20 @@ interface BlogPost {
   tags?: string[];
 }
 
+interface PageParams {
+  locale: string;
+}
+
 // Metadata generation
 export async function generateMetadata({
-  params
+  params,
 }: {
-  params: { locale: string }
+  params: Promise<PageParams>;
 }) {
   // Properly await the locale parameter
-  const locale = params.locale;
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+
   const t = await getTranslations({ locale, namespace: 'BlogPage' });
   
   return {
@@ -32,12 +38,14 @@ export async function generateMetadata({
 
 // This is a Server Component
 export default async function BlogPage({
-  params
+  params,
 }: {
-  params: { locale: string }
+  params: Promise<PageParams>;
 }) {
   // Properly await the locale parameter
-  const locale = params.locale;
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+
   const t = await getTranslations({ locale, namespace: 'BlogPage' });
   const isRTL = locale === 'ar';
   

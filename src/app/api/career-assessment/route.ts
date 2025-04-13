@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
-  try {
+  try { 
     const body = await request.json();
     const { name, email, riskLevelKey, percentage, userInfo, answers } = body;
     

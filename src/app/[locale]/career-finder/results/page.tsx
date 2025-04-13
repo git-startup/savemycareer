@@ -5,7 +5,6 @@ import { useRouter } from '@/i18n/routing';
 import Header from '@/components/Header';
 import { analyzeCareerResponses, CareerMatch, careerMatches, arCareerMatches } from '@/data/careerFinderQuestions';
 import { useTranslations, useLocale } from "next-intl";
-import { saveCareerFinderResults } from '@/lib/apiRoutes';
 
 // Define TypeScript interfaces
 interface UserInfo {
@@ -15,7 +14,14 @@ interface UserInfo {
 }
 
 interface Answers {
-  [key: number]: number;
+  [key: number | string]: number;
+}
+
+interface ApiResponse {
+  success: boolean;
+  message?: string;
+  data?: any;
+  errors?: Record<string, string[]>;
 }
 
 export default function CareerFinderResultsPage() {
@@ -97,18 +103,26 @@ export default function CareerFinderResultsPage() {
     
     // Prepare data for API call
     const careerTitles = topCareers.map(c => c.title).join(', ');
-    
+     
     try {
-      // Call our API route to send data to Laravel
-      const response = await saveCareerFinderResults({
-        name,
-        email,
-        careers: careerTitles,
-        userInfo,
-        answers: originalAnswers
+      // Call our API route to send data
+      const response = await fetch('/api/career-finder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          careers: careerTitles,
+          userInfo,
+          answers: originalAnswers
+        }),
       });
       
-      if (response.success) {
+      const responseData: ApiResponse = await response.json();
+      
+      if (responseData.success) {
         setSubmitted(true);
         // Clear form and localStorage if successful
         (e.target as HTMLFormElement).reset();
@@ -116,7 +130,7 @@ export default function CareerFinderResultsPage() {
         // localStorage.removeItem('careerFinderAnswers');
         // localStorage.removeItem('careerFinderUserInfo');
       } else {
-        setSubmitError(response.message || 'There was an error submitting your information. Please try again.');
+        setSubmitError(responseData.message || 'There was an error submitting your information. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
