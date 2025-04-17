@@ -4,7 +4,7 @@ import FeatureCard from "@/components/FeatureCard";
 import { ShieldIcon, BoltIcon, AdjustmentsIcon } from '@/components/Icons';
 import { useTranslations, useLocale } from "next-intl";
 
-export default function LandingPage() {
+export default function LandingPage() { 
   const t = useTranslations('HomePage');
   const locale = useLocale();
   const isRtl = locale === 'ar';

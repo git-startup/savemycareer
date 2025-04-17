@@ -197,5 +197,35 @@
         "thank_you_title": "Thank You!",
         "career_finder_thank_you_message": "Your personalized career transition roadmap will be delivered to your inbox soon. We've included resources to help you start your journey toward a future-proof career.",
         "back_home_btn": "Back to Home"
+      },
+
+      "WorkshopPage": {
+        "hero_title": "AI-X: Master AI in Your Daily Work",
+        "hero_subtitle": "Join our exclusive workshops to learn how to integrate AI tools into your workflow and boost your productivity.",
+        "feature_1": "Hands-on Training",
+        "feature_2": "Industry-specific Tools",
+        "feature_3": "Career Advancement",
+        
+        "form_title": "Join the Waiting List",
+        "form_subtitle": "Be among the first to know when our AI-X workshops become available in your area.",
+        "form_name": "Full Name",
+        "form_name_placeholder": "Enter your full name",
+        "form_email": "Email Address",
+        "form_email_placeholder": "Enter your email address",
+        "form_position": "Current Position",
+        "form_position_placeholder": "Enter your job title or role",
+        "form_country": "Country",
+        "form_country_placeholder": "Enter your country",
+        "form_expectations": "What do you expect to learn?",
+        "form_expectations_placeholder": "Tell us what skills or knowledge you hope to gain from our workshops",
+        "form_cv": "Resume/CV (optional)",
+        "form_cv_placeholder": "No file selected",
+        "form_cv_help": "Accepted formats: PDF, DOC, DOCX (Max 5MB)",
+        "form_browse": "Browse",
+        "form_submit": "Join Waiting List",
+        "form_submitting": "Submitting...",
+        
+        "success_message": "Thank you! You've been added to our waiting list. We'll notify you when workshops are available in your area.",
+        "error_message": "Something went wrong. Please try again later."
       }
 } 
