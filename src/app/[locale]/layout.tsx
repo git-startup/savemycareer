@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Tajawal } from "next/font/google";
-import { QuestionsProvider } from '@/context/QuestionsContext';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {routing} from '@/i18n/routing'; 
@@ -51,7 +50,6 @@ export default async function RootLayout({
 
   console.log(locale)
   return (
-    <QuestionsProvider>
     <html lang={locale} >
       <body className={`${ locale == 'ar' ? 'ar' : geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
@@ -61,6 +59,5 @@ export default async function RootLayout({
         </NextIntlClientProvider>
       </body>
     </html>
-    </QuestionsProvider>
   );
 }

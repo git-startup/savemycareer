@@ -1,56 +1,214 @@
 {
-    "Header": {
+  "Header": {
       "title": "Save My Career",
-      "home": "Home",
-      "ai_impact": "AI Impact",
-      "career_discovary": "Career Discovery",
-      "blog": "Blogs"
-    },
+      "reports": "Reports",
+      "participate": "Participate",
+      "about": "About"
+  },
 
-    "HomePage": {
-        "title_one": " Will AI Replace",
-        "title_two": "Your Job ",
-        "bio": "Take our assessment to discover how artificial intelligence might impact your career, and learn actionable strategies to stay ahead in the age of automation.",
-        "action_btn": "Find How AI Will Replace Your Work",
-        "action_label": "12 questions • 5 minute assessment",
-        "feature_one_title": "Personalized Risk Analysis",
-        "feature_one_bio": "Get a tailored assessment of how vulnerable your career is to AI automation.",
-        "feature_two_title": "Actionable Strategies",
-        "feature_two_bio": "Discover practical tips to future-proof your career in the age of AI.",
-        "feature_three_title": "AI Adaptation Guide",
-        "feature_three_bio": "Learn how to leverage AI as a tool to enhance your productivity and career growth.",
+  "ThankYouPage": {
+      "title": "Thank You for Contributing!",
+      "main_message": "Your survey response has been successfully submitted and is now part of our comprehensive AI career impact database. You're helping create the most accurate picture of how AI is transforming the job market.",
+      
+      "what_next_title": "What Happens Next?",
+      
+      "step_1_title": "Data Processing",
+      "step_1_description": "Your responses are being processed alongside thousands of others to generate industry insights.",
+      
+      "step_2_title": "Report Generation", 
+      "step_2_description": "Our AI analyzes the data to create personalized reports for your specific career and location.",
+      
+      "step_3_title": "Email Delivery",
+      "step_3_description": "You'll receive your detailed AI impact report within next month via email.",
+      
+      "step_4_title": "Monthly Updates",
+      "step_4_description": "Continue receiving monthly reports by participating in our ongoing surveys.",
+      
+      "important_note_title": "Important:",
+      "important_note_message": "Check your email (including spam folder) for your personalized AI career impact report. Make sure to add our email to your contacts for future reports.",
+      
+      "back_home": "Back to Home",
+      "view_sample_reports": "View Sample Reports",
+      
+      "share_message": "Help others understand AI's impact on their careers:",
+      "share_linkedin": "Share on LinkedIn",
+      "share_twitter": "Share on Twitter"
+  },
+  "HomePage": {
+      "trusted_data_badge": "Most Trusted AI Career Data",
+      "main_title_part1": "The Most Accurate",
+      "main_title_part2": "AI Career Impact",
+      "main_title_part3": "Data Platform",
+      "main_description": "Get monthly insights on how AI is transforming your industry and career path. Our data-driven reports help professionals stay ahead of the AI revolution through comprehensive industry analysis.",
+      "cta_primary": "Participate & Get Report",
+      "cta_secondary": "View Sample Reports",
+      "participation_note": "Receive detailed monthly reports by participating in our industry survey",
+      
+      "stat_professionals": "Active Professionals",
+      "stat_industries": "Industries Covered",
+      "stat_accuracy": "Data Accuracy Rate",
+      
+      "how_it_works_title": "How Our Data Platform Works",
+      "how_it_works_description": "We follow the give-and-receive framework to ensure high-quality, relevant data for everyone",
+      
+      "step_1_title": "Participate in Survey",
+      "step_1_description": "Share your AI usage and career insights through our comprehensive monthly survey",
+      
+      "step_2_title": "Contribute to Data Pool",
+      "step_2_description": "Your responses help create the most accurate industry-wide AI impact database",
+      
+      "step_3_title": "Receive Detailed Reports",
+      "step_3_description": "Get personalized monthly reports on AI trends affecting your specific career and location",
+      
+      "features_title": "Why Our Data Matters",
+      "features_description": "Industry-leading insights backed by real professional experiences",
+      
+      "feature_data_accuracy_title": "Unmatched Data Accuracy",
+      "feature_data_accuracy_description": "Our give-and-receive model ensures authentic, real-world data from practicing professionals across industries.",
+      
+      "feature_real_time_title": "Real-Time Industry Insights",
+      "feature_real_time_description": "Monthly updates capture the rapidly evolving AI landscape, giving you the most current industry intelligence.",
+      
+      "feature_personalized_title": "Personalized Career Intelligence",
+      "feature_personalized_description": "Get targeted insights for your specific role, industry, and location - not generic career advice.",
+      
+      "final_cta_title": "Ready to Access Premium AI Career Intelligence?",
+      "final_cta_description": "Join thousands of professionals who receive monthly AI impact reports tailored to their career and industry.",
+      "final_cta_button": "Start Contributing & Receiving"
+  },
 
-        "how_it_works": "How It Works",
-        "ai_impact_test_title": "AI Impact Assessment",
-        "ai_impact_test_description": "Discover how AI might impact your current career and learn strategies to adapt.",
-        "ai_impact_test_button": "Start AI Impact Test",
-        "career_finder_title": "Career Finder Test",
-        "career_finder_description": "Find the best new career path for you when AI transforms your industry.",
-        "career_finder_button": "Discover Your New Career",
-        "career_finder_label": "10 questions • 4 minute assessment",
-        "features_heading": "Why Use SaveMyCareer.ai"
-    },
+  "SurveyPage": {
+    "hero_badge": "AI Career Impact Survey",
+    "hero_title": "Share Your AI Experience",
+    "hero_description": "Help us create the most accurate AI career impact data by sharing your experience. You'll receive a detailed personalized report in return.",
+    
+    "step_1_title": "Personal Information",
+    "step_1_subtitle": "Tell us about yourself",
+    "step_2_title": "AI Usage & Experience", 
+    "step_2_subtitle": "How do you use AI in your work?",
+    "step_3_title": "Career & Impact",
+    "step_3_subtitle": "AI's impact on your career",
+    "step_4_title": "Additional insights",
+    "step_4_subtitle": "Help us understand more",
+    
+    "progress_step": "Step",
+    "progress_of": "of",
+    "progress_complete": "Complete",
+    
+    "name_label": "Full Name",
+    "name_placeholder": "Enter your full name",
+    "email_label": "Email Address", 
+    "email_placeholder": "Enter your email address",
+    "dob_label": "Date of Birth",
+    "career_label": "Current Career/Job Title",
+    "career_placeholder": "Start typing your profession...",
+    "location_label": "Current Location",
+    "location_placeholder": "Start typing your country/city...",
+    "employer_label": "Current Employer",
+    "employer_optional": "(Optional)",
+    "employer_placeholder": "Company or organization name",
+    "salary_label": "Annual Salary Range",
+    "salary_optional": "(Optional)",
+    "salary_placeholder": "Select salary range",
+    "salary_under_30k": "Under $30,000",
+    "salary_30k_50k": "$30,000 - $50,000", 
+    "salary_50k_75k": "$50,000 - $75,000",
+    "salary_75k_100k": "$75,000 - $100,000",
+    "salary_100k_150k": "$100,000 - $150,000",
+    "salary_over_150k": "Over $150,000",
+    "salary_prefer_not": "Prefer not to say",
+    
+    "ai_usage_frequency_label": "How often do you use AI tools in your daily work?",
+    "ai_usage_daily": "Daily - I use AI tools every workday",
+    "ai_usage_weekly": "Weekly - I use AI tools several times per week",
+    "ai_usage_monthly": "Monthly - I use AI tools occasionally", 
+    "ai_usage_rarely": "Rarely - I barely use AI tools",
+    "ai_usage_never": "Never - I don't use AI tools at work",
+    
+    "ai_helpfulness_label": "How helpful has AI been for your work this month?",
+    "ai_helpfulness_very_helpful": "Very helpful - Significantly improved my productivity",
+    "ai_helpfulness_somewhat_helpful": "Somewhat helpful - Provided some assistance",
+    "ai_helpfulness_neutral": "Neutral - Neither helpful nor harmful",
+    "ai_helpfulness_not_very_helpful": "Not very helpful - Limited impact",
+    "ai_helpfulness_not_helpful": "Not helpful - Caused more problems than solutions",
+    
+    "ai_tools_used_label": "Which AI tools do you currently use in your work?",
+    "select_all_apply": "(Select all that apply)",
+    
+    "most_used_ai_tool_label": "What is your most frequently used AI tool?",
+    "select_most_used": "Select your most used AI tool",
+    
+    "ai_impact_on_job_label": "How would you describe AI's overall impact on your job performance?",
+    "ai_impact_very_positive": "Very positive - AI has greatly enhanced my capabilities",
+    "ai_impact_positive": "Positive - AI has improved my work in several ways",
+    "ai_impact_neutral": "Neutral - AI hasn't significantly changed my work",
+    "ai_impact_negative": "Negative - AI has created challenges for me",
+    "ai_impact_very_negative": "Very negative - AI has significantly hindered my work",
+    
+    "years_experience_label": "Years of Experience in Your Field",
+    "select_experience": "Select experience level",
+    "experience_0_1": "0-1 years",
+    "experience_2_5": "2-5 years", 
+    "experience_6_10": "6-10 years",
+    "experience_11_15": "11-15 years",
+    "experience_16_20": "16-20 years",
+    "experience_over_20": "Over 20 years",
+    
+    "work_arrangement_label": "Work Arrangement",
+    "select_work_arrangement": "Select work arrangement",
+    "work_fully_remote": "Fully remote",
+    "work_hybrid": "Hybrid (mix of remote and office)",
+    "work_fully_office": "Fully in-office",
+    
+    "industry_type_label": "Industry Type",
+    "select_industry": "Select industry",
+    "industry_technology": "Technology",
+    "industry_healthcare": "Healthcare",
+    "industry_finance": "Finance",
+    "industry_education": "Education",
+    "industry_manufacturing": "Manufacturing",
+    "industry_retail": "Retail",
+    "industry_consulting": "Consulting",
+    "industry_government": "Government",
+    "industry_other": "Other",
+    
+    "team_size_label": "Team Size",
+    "select_team_size": "Select team size", 
+    "team_1_5": "1-5 people",
+    "team_6_10": "6-10 people",
+    "team_11_25": "11-25 people",
+    "team_26_50": "26-50 people",
+    "team_over_50": "Over 50 people",
+    
+    "ai_training_label": "What type of AI training have you received?",
+    "ai_training_formal": "Formal training (courses, workshops, certifications)",
+    "ai_training_informal": "Informal training (colleagues, online videos)",
+    "ai_training_self_taught": "Self-taught (experimentation, trial and error)",
+    "ai_training_none": "No formal training",
+    
+    "future_concerns_label": "What is your biggest concern about AI's future impact on your career?",
+    "concern_job_replacement": "Complete job replacement by AI",
+    "concern_skill_obsolescence": "My skills becoming obsolete",
+    "concern_privacy": "Privacy and data security issues",
+    "concern_quality": "AI producing lower quality work",
+    "concern_none": "I have no significant concerns",
+    
+    "additional_comments_label": "Additional Comments or Insights",
+    "additional_comments_placeholder": "Share any additional thoughts about AI's impact on your work or industry...",
+    
+    "btn_previous": "Previous",
+    "btn_next_step": "Next Step", 
+    "btn_submit": "Submit Survey",
+    "btn_submitting": "Submitting...",
+    
+    "required_field": "*",
+    "optional_field": "(Optional)",
+    
+    "submit_success": "Thank you! Your survey has been submitted successfully.",
+    "submit_error": "There was an error submitting your survey. Please try again."
+  },
 
-    "BlogPage": {
-      "title": "Our Blog",
-      "description": "Read our latest articles about career protection in the age of AI",
-      "loading": "Loading blog posts...",
-      "error_loading": "Failed to load blog posts. Please try again later.",
-      "no_posts": "No blog posts found.",
-      "read_more": "Read More"
-    },
-
-    "BlogPost": {
-      "back_to_blog": "Back to Blog",
-      "description": "Explore actionable strategies to stay ahead in the age of automation",
-      "loading": "Loading post...",
-      "error_loading": "Failed to load blog post. Please try again later.",
-      "post_not_found": "Blog post not found.",
-      "tags": "Tags",
-      "related_posts": "Related Posts"
-    },
-
-    "QuestionsPage": {
+  "QuestionsPage": {
       "about_you": "About You",
       "question": "Question",
       "of": "of",
@@ -58,174 +216,271 @@
       "next": "Next",
       "previous": "Previous",
       "see_results": "See Results"
+  },
+
+  "AboutPage": {
+    "hero": {
+      "badge": "About SaveMyCareer.ai",
+      "title": {
+        "part1": "Empowering Careers in the",
+        "part2": "Age of AI"
+      },
+      "subtitle": "We're building the world's most comprehensive AI career impact platform, helping professionals navigate the future of work with confidence and clarity.",
+      "cta": {
+        "primary": "Join Our Mission",
+        "secondary": "View Our Work"
+      }
     },
-
-    
-    "ResultsPage": {
-        "title": "Your AI Career Assessment Results",
-        "no_results": "No assessment results found. Please take the assessment first.",
-        "take_assessment_btn": "Take Assessment",
-        "user_info_title": "Your Information",
-        "career": "Career",
-        "location": "Location",
-        "experience": "Years of Experience",
-        "assessment_means_title": "What This Assessment Means",
-        "assessment_means_bio": "Based on your responses, we've analyzed how likely your job role is to be affected by AI automation: ",
-        "recommendation_title": "Recommendations for You",
-        "next_steps_title": "Next Steps",
-        "next_steps_bio": "Here are some strategies to help you stay ahead in the age of AI:",
-        "skill_development_title": "Skill Development",
-        "skill_development_bio": "Focus on building skills that are difficult to automate, such as critical thinking, creativity, and emotional intelligence.",
-        "ai_literacy_title": "AI Literacy",
-        "ai_literacy_bio": "Learn about AI capabilities and limitations to better understand how you can work alongside AI tools.",
-        "career_pivoting_title": "Career Pivoting",
-        "career_pivoting_bio": "Consider related fields that require more human judgment and complex decision-making abilities.",
-        "continuous_learning_title": "Continuous Learning",
-        "continuous_learning_bio": "Stay updated with industry trends and be proactive about learning new technologies.",
-        "back_home_btn": "Back to Home",
-        "newsletter_title": "Stay Updated with Career Tips",
-        "newsletter_description": "Subscribe to receive weekly updates and daily tips to help you stay ahead of AI in your industry.",
-        "name_label": "Full Name",
-        "name_placeholder": "Enter your full name",
-        "email_label": "Email Address",
-        "email_placeholder": "Enter your email address",
-        "consent_text": "I agree to receive career tips and industry updates by email.",
-        "subscribe_btn": "Subscribe",
-        "newsletter_success": "Thank you for subscribing! You'll start receiving career tips soon.",
-        "newsletter_error": "There was an error with your subscription. Please try again.",
-
-        "get_full_insights_title": "Enter Your Email to Get Personalized Recommendations",
-        "get_full_insights_description": "Based on your assessment results, we've prepared valuable insights specifically for you. To receive your personalized recommendations, next steps, and ongoing industry updates, please provide your email address below.",
-        "email_benefits": "We'll send you:",
-        "detailed_recommendations": "Custom recommendations tailored to your assessment results",
-        "industry_trends": "Regular updates on AI trends affecting your career field",
-        "skill_development": "Opportunities to develop competitive skills in your industry",
-        "career_strategies": "Strategic advice to navigate your career in the age of AI",
-        "get_insights_btn": "Send Me My Recommendations",
-        "skip_for_now": "Maybe Later",
-        "thank_you_title": "Thank You for Subscribing!",
-        "thank_you_message": "We've received your information. Your personalized recommendations and AI career insights will be sent to your email shortly.",
-        
-        "risk_levels": {
-          "high_risk": "High Risk",
-          "moderate_risk": "Moderate Risk",
-          "low_risk": "Low Risk"
+    "tabs": {
+      "mission": "Our Mission",
+      "vision": "Our Vision",
+      "values": "Our Values"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To provide the most accurate, comprehensive, and actionable insights about AI's impact on careers, empowering professionals to make informed decisions about their future in an AI-driven world.",
+      "points": {
+        "dataInsights": {
+          "title": "Data-Driven Insights",
+          "description": "We collect and analyze real-world data from professionals across industries to provide accurate career intelligence."
         },
-        
-        "risk_explanations": {
-          "high_risk": "This suggests your current role contains many tasks that could be automated by AI in the coming years.",
-          "moderate_risk": "This indicates that while some aspects of your job may be automated, your human expertise will remain valuable.",
-          "low_risk": "This suggests your role requires uniquely human capabilities that AI will find difficult to replicate."
+        "democratized": {
+          "title": "Democratized Access",
+          "description": "We make premium career intelligence accessible to everyone, regardless of their background or resources."
         },
-        
-        "messages": {
-          "high_risk_message": "Your job has many characteristics that make it susceptible to AI automation.",
-          "moderate_risk_message": "Parts of your job may be automated, but human expertise will likely remain valuable.",
-          "low_risk_message": "Your job involves many elements that are difficult for AI to replicate.",
-          "no_answers": "We couldn't determine your AI replacement risk because no questions were answered."
-        },
-        
-        "tips": {
-          "try_answering": "Try answering the questions to get a personalized assessment.",
-          
-          "high_risk_tip_1": "Focus on developing skills that AI currently struggles with, like creative problem-solving and emotional intelligence.",
-          "high_risk_tip_2": "Learn how to use AI tools to enhance your productivity rather than compete with them.",
-          "high_risk_tip_3": "Consider transitioning to roles that require more human judgment and interpersonal skills.",
-          "high_risk_tip_4": "Stay updated on AI developments in your field to anticipate changes.",
-          "high_risk_tip_5": "Pursue continuous education in emerging technologies to remain relevant.",
-          
-          "moderate_risk_tip_1": "Identify which aspects of your role are most vulnerable to automation and which require uniquely human skills.",
-          "moderate_risk_tip_2": "Learn to collaborate effectively with AI tools to increase your productivity and value.",
-          "moderate_risk_tip_3": "Develop your expertise in areas where human judgment and creativity add the most value.",
-          "moderate_risk_tip_4": "Build skills in managing and interpreting AI outputs rather than producing what AI can generate.",
-          "moderate_risk_tip_5": "Focus on relationship-building and complex problem-solving that AI cannot easily replicate.",
-          
-          "low_risk_tip_1": "While your job is less likely to be fully automated, use AI tools to handle routine aspects and focus on high-value work.",
-          "low_risk_tip_2": "Stay ahead by learning how AI can complement your skills and make you more effective.",
-          "low_risk_tip_3": "Develop expertise in directing and managing AI systems to further enhance your value.",
-          "low_risk_tip_4": "Continue strengthening uniquely human capabilities like empathy, creativity, and adaptability.",
-          "low_risk_tip_5": "Mentor others in how to adapt to technological changes within your field."
+        "futureReady": {
+          "title": "Future-Ready Skills",
+          "description": "We help professionals identify and develop the skills needed to thrive in an AI-enhanced workplace."
+        }
+      }
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "A world where every professional has the knowledge and tools they need to thrive alongside AI, creating a future where human potential is amplified, not replaced.",
+      "goals2025": {
+        "title": "2025 Goals",
+        "items": {
+          "professionals": "1 million professionals surveyed",
+          "industries": "200+ industries analyzed",
+          "countries": "50 countries represented",
+          "database": "Global AI career database"
         }
       },
-
-      "CareerFinderPage": {
-        "about_you": "About You",
-        "question": "Question",
-        "of": "of",
-        "select_an_option": "Select an option",
-        "next": "Next",
-        "previous": "Previous",
-        "see_results": "See Results",
-        "no_results": "No assessment results found. Please take the assessment first.",
-        "take_assessment_btn": "Take Assessment",
-        
-        "results_title": "Your Future Career Recommendations",
-        "user_info_title": "Your Information",
-        "current_field": "Current Field",
-        "education_level": "Education Level",
-        "tech_adaptability": "Technology Adaptability",
-        
-        "career_matches_title": "Top Career Matches for the AI Era",
-        "ai_resistance": "AI Resistance",
-        "growth_potential": "Growth Potential",
-        "high": "High",
-        "medium": "Medium",
-        "low": "Low",
-        "ai_resistant_high": "Highly AI-resistant",
-        "ai_resistant_medium": "Moderately AI-resistant",
-        "ai_resistant_low": "Less AI-resistant",
-        "education_required": "Education/Training Required",
-        "salary_range": "Salary Range",
-        "key_skills": "Key Skills",
-        
-        "next_steps_title": "Next Steps",
-        "next_steps_description": "To pursue one of these recommended careers, consider the following steps:",
-        "next_step_1": "Research specific training programs or courses related to your chosen field.",
-        "next_step_2": "Identify transferable skills from your current role that would apply to your new career.",
-        "next_step_3": "Connect with professionals already working in these fields through LinkedIn or industry events.",
-        "next_step_4": "Build a portfolio or projects that demonstrate your capabilities in this new area.",
-        
-        "career_roadmap_title": "Get Your Personalized Career Transition Roadmap",
-        "career_roadmap_description": "We'll send you a detailed roadmap with steps to transition into your ideal future-proof career, including recommended courses, skills to develop, and strategies for showcasing your expertise.",
-        "name_label": "Full Name",
-        "name_placeholder": "Enter your full name",
-        "email_label": "Email Address",
-        "email_placeholder": "Enter your email address",
-        "consent_text": "I agree to receive career transition guidance and resources by email.",
-        "get_roadmap_btn": "Send Me My Career Roadmap",
-        "skip_for_now": "Skip for now",
-        "thank_you_title": "Thank You!",
-        "career_finder_thank_you_message": "Your personalized career transition roadmap will be delivered to your inbox soon. We've included resources to help you start your journey toward a future-proof career.",
-        "back_home_btn": "Back to Home"
-      },
-
-      "WorkshopPage": {
-        "hero_title": "AI-X: Master AI in Your Daily Work",
-        "hero_subtitle": "Join our exclusive workshops to learn how to integrate AI tools into your workflow and boost your productivity.",
-        "feature_1": "Hands-on Training",
-        "feature_2": "Industry-specific Tools",
-        "feature_3": "Career Advancement",
-        
-        "form_title": "Join the Waiting List",
-        "form_subtitle": "Be among the first to know when our AI-X workshops become available in your area.",
-        "form_name": "Full Name",
-        "form_name_placeholder": "Enter your full name",
-        "form_email": "Email Address",
-        "form_email_placeholder": "Enter your email address",
-        "form_position": "Current Position",
-        "form_position_placeholder": "Enter your job title or role",
-        "form_country": "Country",
-        "form_country_placeholder": "Enter your country",
-        "form_expectations": "What do you expect to learn?",
-        "form_expectations_placeholder": "Tell us what skills or knowledge you hope to gain from our workshops",
-        "form_cv": "Resume/CV (optional)",
-        "form_cv_placeholder": "No file selected",
-        "form_cv_help": "Accepted formats: PDF, DOC, DOCX (Max 5MB)",
-        "form_browse": "Browse",
-        "form_submit": "Join Waiting List",
-        "form_submitting": "Submitting...",
-        
-        "success_message": "Thank you! You've been added to our waiting list. We'll notify you when workshops are available in your area.",
-        "error_message": "Something went wrong. Please try again later."
+      "longTerm": {
+        "title": "Long-term Impact",
+        "items": {
+          "anxiety": "Reduced AI-related career anxiety",
+          "adaptability": "Improved workforce adaptability",
+          "collaboration": "Better AI-human collaboration",
+          "inclusive": "Inclusive future of work"
+        }
       }
-} 
+    },
+    "values": {
+      "title": "Our Values",
+      "description": "The principles that guide everything we do and every decision we make.",
+      "items": {
+        "transparency": {
+          "title": "Transparency",
+          "description": "We believe in open, honest communication about our methods, data sources, and findings."
+        },
+        "accuracy": {
+          "title": "Accuracy",
+          "description": "We are committed to providing the most reliable and precise career intelligence possible."
+        },
+        "inclusivity": {
+          "title": "Inclusivity",
+          "description": "We ensure our platform serves professionals from all backgrounds, industries, and regions."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "We continuously push the boundaries of what's possible in career intelligence and AI research."
+        },
+        "privacy": {
+          "title": "Privacy",
+          "description": "We protect our users' data with the highest security standards and ethical practices."
+        },
+        "empowerment": {
+          "title": "Empowerment",
+          "description": "We focus on empowering professionals with knowledge and tools to shape their own futures."
+        }
+      }
+    },
+    "story": {
+      "title": "Our Story",
+      "subtitle": "How we started and where we're headed in the journey to democratize AI career intelligence.",
+      "steps": {
+        "problem": {
+          "title": "The Problem",
+          "description": "We noticed that while everyone was talking about AI's impact on jobs, there was no reliable, comprehensive data source for professionals to understand how AI would actually affect their specific careers."
+        },
+        "solution": {
+          "title": "The Solution",
+          "description": "We developed the give-and-receive framework: professionals share their real AI experiences, and in return, they get access to the most comprehensive AI career impact database ever created."
+        },
+        "impact": {
+          "title": "The Impact",
+          "year": "2025 & Beyond",
+          "description": "Today, we're helping thousands of professionals make informed career decisions, and we're just getting started. Our vision is to create a global resource that empowers careers in the age of AI."
+        }
+      },
+      "stats": {
+        "title": "By The Numbers",
+        "subtitle": "Our impact in real numbers",
+        "professionals": "Professionals Surveyed",
+        "industries": "Industries Analyzed",
+        "accuracy": "Data Accuracy Rate",
+        "countries": "Countries Represented"
+      }
+    },
+    "technology": {
+      "title": "How We Do It",
+      "subtitle": "The technology and methodology behind our AI career intelligence platform.",
+      "sections": {
+        "dataCollection": {
+          "title": "Data Collection",
+          "description": "We gather real-world data from professionals across industries through our comprehensive surveys and partnerships.",
+          "features": {
+            "surveys": "Monthly surveys",
+            "partnerships": "Industry partnerships",
+            "realTime": "Real-time data capture",
+            "global": "Global reach"
+          }
+        },
+        "aiAnalysis": {
+          "title": "AI Analysis",
+          "description": "Our advanced AI algorithms analyze patterns, trends, and correlations in career impact data.",
+          "features": {
+            "ml": "Machine learning",
+            "pattern": "Pattern recognition",
+            "predictive": "Predictive modeling",
+            "trends": "Trend analysis"
+          }
+        },
+        "insights": {
+          "title": "Insights Generation",
+          "description": "We transform raw data into actionable insights and personalized recommendations for professionals.",
+          "features": {
+            "reports": "Personalized reports",
+            "benchmarks": "Industry benchmarks",
+            "recommendations": "Career recommendations",
+            "predictions": "Future predictions"
+          }
+        }
+      }
+    },
+    "cta": {
+      "title": "Join the Future of Career Intelligence",
+      "description": "Be part of the movement that's helping millions of professionals navigate the AI revolution. Your experience matters, and together, we're building a better future of work.",
+      "buttons": {
+        "survey": "Take the Survey",
+        "reports": "Explore Reports"
+      }
+    }
+  },
+
+  "ResultsPage": {
+      "title": "Your AI Career Assessment Results",
+      "no_results": "No assessment results found. Please take the assessment first.",
+      "take_assessment_btn": "Take Assessment",
+      "user_info_title": "Your Information",
+      "career": "Career",
+      "location": "Location",
+      "experience": "Years of Experience",
+      "assessment_means_title": "What This Assessment Means",
+      "assessment_means_bio": "Based on your responses, we've analyzed how likely your job role is to be affected by AI automation: ",
+      "recommendation_title": "Recommendations for You",
+      "next_steps_title": "Next Steps",
+      "next_steps_bio": "Here are some strategies to help you stay ahead in the age of AI:",
+      "skill_development_title": "Skill Development",
+      "skill_development_bio": "Focus on building skills that are difficult to automate, such as critical thinking, creativity, and emotional intelligence.",
+      "ai_literacy_title": "AI Literacy",
+      "ai_literacy_bio": "Learn about AI capabilities and limitations to better understand how you can work alongside AI tools.",
+      "career_pivoting_title": "Career Pivoting",
+      "career_pivoting_bio": "Consider related fields that require more human judgment and complex decision-making abilities.",
+      "continuous_learning_title": "Continuous Learning",
+      "continuous_learning_bio": "Stay updated with industry trends and be proactive about learning new technologies.",
+      "back_home_btn": "Back to Home",
+      "newsletter_title": "Stay Updated with Career Tips",
+      "newsletter_description": "Subscribe to receive weekly updates and daily tips to help you stay ahead of AI in your industry.",
+      "name_label": "Full Name",
+      "name_placeholder": "Enter your full name",
+      "email_label": "Email Address",
+      "email_placeholder": "Enter your email address",
+      "consent_text": "I agree to receive career tips and industry updates by email.",
+      "subscribe_btn": "Subscribe",
+      "newsletter_success": "Thank you for subscribing! You'll start receiving career tips soon.",
+      "newsletter_error": "There was an error with your subscription. Please try again.",
+
+      "get_full_insights_title": "Enter Your Email to Get Personalized Recommendations",
+      "get_full_insights_description": "Based on your assessment results, we've prepared valuable insights specifically for you. To receive your personalized recommendations, next steps, and ongoing industry updates, please provide your email address below.",
+      "email_benefits": "We'll send you:",
+      "detailed_recommendations": "Custom recommendations tailored to your assessment results",
+      "industry_trends": "Regular updates on AI trends affecting your career field",
+      "skill_development": "Opportunities to develop competitive skills in your industry",
+      "career_strategies": "Strategic advice to navigate your career in the age of AI",
+      "get_insights_btn": "Send Me My Recommendations",
+      "skip_for_now": "Maybe Later",
+      "thank_you_title": "Thank You for Subscribing!",
+      "thank_you_message": "We've received your information. Your personalized recommendations and AI career insights will be sent to your email shortly.",
+      
+      "risk_levels": {
+        "high_risk": "High Risk",
+        "moderate_risk": "Moderate Risk",
+        "low_risk": "Low Risk"
+      },
+      
+      "risk_explanations": {
+        "high_risk": "This suggests your current role contains many tasks that could be automated by AI in the coming years.",
+        "moderate_risk": "This indicates that while some aspects of your job may be automated, your human expertise will remain valuable.",
+        "low_risk": "This suggests your role requires uniquely human capabilities that AI will find difficult to replicate."
+      },
+      
+      "messages": {
+        "high_risk_message": "Your job has many characteristics that make it susceptible to AI automation.",
+        "moderate_risk_message": "Parts of your job may be automated, but human expertise will likely remain valuable.",
+        "low_risk_message": "Your job involves many elements that are difficult for AI to replicate.",
+        "no_answers": "We couldn't determine your AI replacement risk because no questions were answered."
+      },
+      
+      "tips": {
+        "try_answering": "Try answering the questions to get a personalized assessment.",
+        
+        "high_risk_tip_1": "Focus on developing skills that AI currently struggles with, like creative problem-solving and emotional intelligence.",
+        "high_risk_tip_2": "Learn how to use AI tools to enhance your productivity rather than compete with them.",
+        "high_risk_tip_3": "Consider transitioning to roles that require more human judgment and interpersonal skills.",
+        "high_risk_tip_4": "Stay updated on AI developments in your field to anticipate changes.",
+        "high_risk_tip_5": "Pursue continuous education in emerging technologies to remain relevant.",
+        
+        "moderate_risk_tip_1": "Identify which aspects of your role are most vulnerable to automation and which require uniquely human skills.",
+        "moderate_risk_tip_2": "Learn to collaborate effectively with AI tools to increase your productivity and value.",
+        "moderate_risk_tip_3": "Develop your expertise in areas where human judgment and creativity add the most value.",
+        "moderate_risk_tip_4": "Build skills in managing and interpreting AI outputs rather than producing what AI can generate.",
+        "moderate_risk_tip_5": "Focus on relationship-building and complex problem-solving that AI cannot easily replicate.",
+        
+        "low_risk_tip_1": "While your job is less likely to be fully automated, use AI tools to handle routine aspects and focus on high-value work.",
+        "low_risk_tip_2": "Stay ahead by learning how AI can complement your skills and make you more effective.",
+        "low_risk_tip_3": "Develop expertise in directing and managing AI systems to further enhance your value.",
+        "low_risk_tip_4": "Continue strengthening uniquely human capabilities like empathy, creativity, and adaptability.",
+        "low_risk_tip_5": "Mentor others in how to adapt to technological changes within your field."
+      }
+    },
+
+    "EmailModal": {
+      "title": "Get Exclusive AI Career Reports",
+      "description": "Enter your details to receive our comprehensive AI career impact reports and stay updated with the latest insights.",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "nameError": "Please enter at least 2 characters for your name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "emailError": "Please enter a valid email address",
+      "privacyTitle": "Your Privacy Matters",
+      "privacyText": "We respect your privacy and will only send you relevant career insights. You can unsubscribe at any time.",
+      "cancelButton": "Cancel",
+      "submitButton": "Send Reports",
+      "sendingButton": "Sending..."
+    }
+
+    
+}

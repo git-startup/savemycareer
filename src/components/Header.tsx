@@ -6,18 +6,27 @@ import { useTransition, useState } from 'react';
 import {useParams} from 'next/navigation';
 import { useTranslations, useLocale } from "next-intl";
 import {usePathname, useRouter} from '@/i18n/routing'; 
+import PremiumLogo from './PremiumLogo';
+import EmailModal from './EmailModal';
 
 export default function Header() {
   const locale = useLocale();
   const t = useTranslations('Header'); 
   const pathname = usePathname();
   const isArabic = locale === 'ar';
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
+  const [showMessage, setShowMessage] = useState(false);
 
   // Get the opposite locale for switching
   const switchTo = isArabic ? 'en' : 'ar';
   const switchLabel = isArabic ? 'English' : 'العربية';
-  
+  // Language icons
+  const langIcon = isArabic ? '/images/lang-en.png' : '/images/lang-ar.png';
+
   const [ isPending, startTransition ] = useTransition();
   const router = useRouter();
   const params = useParams();
@@ -25,10 +34,8 @@ export default function Header() {
   const changeLang = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     const nextLocale = e.currentTarget.getAttribute('data-locale');
-    // Make sure nextLocale is not null before using it
     if (nextLocale) {
       startTransition(() => {
-        // Fix: Correctly use the router.replace method based on next-intl routing
         router.replace(
           pathname,
           { locale: nextLocale }
@@ -37,177 +44,273 @@ export default function Header() {
     }
   }
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  }
+  // Handle reports link click
+  const handleReportsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsEmailModalOpen(true);
+    setIsMenuOpen(false); // Close mobile menu if open
+    // Reset message state when opening modal
+    setSubmitMessage('');
+    setMessageType('');
+    setShowMessage(false);
+  };
+
+  // Handle email submission
+  const handleEmailSubmit = async (data: { name: string; email: string }) => {
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    setMessageType('');
+    setShowMessage(false);
+    
+    try {
+      const response = await fetch('/api/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({data, language: locale}),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setSubmitMessage(result.message || t('submit_success'));
+        setMessageType('success');
+        setShowMessage(true);
+        
+        // Close modal after 3 seconds on success
+        setTimeout(() => {
+          setIsEmailModalOpen(false);
+          setShowMessage(false);
+          setSubmitMessage('');
+        }, 3000);
+      } else {
+        setSubmitMessage(result.message || t('submit_error'));
+        setMessageType('error');
+        setShowMessage(true);
+      }
+    } catch (error) {
+      console.error('Email submission error:', error);
+      setSubmitMessage(t('submit_error'));
+      setMessageType('error');
+      setShowMessage(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const navigationItems = [
+    { 
+      href: '/reports', 
+      label: t('reports'), 
+      icon: '📊',
+      onClick: handleReportsClick
+    },
+    { 
+      href: '/survey', 
+      label: t('participate'), 
+      icon: '🎯'
+    },
+    { 
+      href: '/about', 
+      label: t('about'), 
+      icon: 'ℹ️'
+    }
+  ];
 
   return (
-    <header className="border-b border-gray-200 dark:border-gray-800" dir={isArabic ? 'rtl' : 'ltr'}>
-      <div className="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo Container - Text-focused design */}
-        <Link href="/" className="flex items-center">
-          {/* SVG Logo - Text-focused for better visibility */}
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 500 120" 
-            className="h-12 w-48 md:h-14 md:w-56"
-            style={{ minWidth: '180px' }}
-          >
-            {/* Streamlined Logo for Header Use */}
-            <g transform="scale(0.6) translate(10, -20)">
-              {/* Career Path Line - Made smaller to emphasize text */}
-              <path 
-                d="M40,100 C80,80 120,90 160,70 C200,50 240,60 280,40 C320,20 360,30 400,10" 
-                stroke="#4361ee" 
-                strokeWidth="10" 
-                fill="none" 
-                strokeLinecap="round"
-              />
+    <>
+      <header className="relative bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            {/* Premium Logo */}
+            <PremiumLogo size="large" showTagline={true} animate={true} />
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-1">
+              {navigationItems.map((item) => (
+                <div key={item.href}>
+                  {item.onClick ? (
+                    <button
+                      onClick={item.onClick}
+                      className="group relative px-4 py-2 rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50"
+                    >
+                      <div className="flex items-center space-x-2">
+                        <span className="text-lg">{item.icon}</span>
+                        <span className="text-gray-700 group-hover:text-blue-600 font-medium transition-colors duration-300">
+                          {item.label}
+                        </span>
+                      </div>
+                      
+                      {/* Hover underline */}
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </button>
+                  ) : (
+                    <Link href={item.href}>
+                      <div className="group relative px-4 py-2 rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50">
+                        <div className="flex items-center space-x-2">
+                          <span className="text-lg">{item.icon}</span>
+                          <span className="text-gray-700 group-hover:text-blue-600 font-medium transition-colors duration-300">
+                            {item.label}
+                          </span>
+                        </div>
+                        
+                        {/* Hover underline */}
+                        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                      </div>
+                    </Link>
+                  )}
+                </div>
+              ))}
               
-              {/* Data Points */}
-              <circle cx="40" cy="100" r="6" fill="#4361ee"/>
-              <circle cx="160" cy="70" r="6" fill="#4361ee"/>
-              <circle cx="280" cy="40" r="6" fill="#4361ee"/>
-              <circle cx="400" cy="10" r="6" fill="#4361ee"/>
+              {/* Language Switcher */}
+              <div className="ml-6 pl-6 border-l border-gray-200">
+                <button 
+                  onClick={changeLang}
+                  data-locale={switchTo}
+                  className="group flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-blue-50 hover:to-purple-50 border border-gray-200 hover:border-blue-200 transition-all duration-300"
+                >
+                  <div className="w-6 h-6 rounded-full overflow-hidden border-2 border-gray-300 group-hover:border-blue-400 transition-colors duration-300">
+                    <Image 
+                      src={langIcon} 
+                      alt={switchLabel} 
+                      width={24} 
+                      height={24} 
+                      className="object-cover"
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors duration-300">
+                    {switchLabel}
+                  </span>
+                </button>
+              </div>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden flex items-center space-x-4">
+              {/* Mobile Language Switcher */}
+              <button 
+                onClick={changeLang}
+                data-locale={switchTo}
+                className="flex items-center space-x-1 px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
+              >
+                <Image src={langIcon} alt={switchLabel} width={20} height={20} />
+                <span className="text-sm font-medium text-gray-700">{switchLabel}</span>
+              </button>
               
-              {/* AI Circuit Element - Smaller to emphasize text */}
-              <g transform="translate(220, 55)">
-                <circle cx="0" cy="0" r="25" fill="#4361ee" opacity="0.2"/>
-                <circle cx="0" cy="0" r="15" fill="#4361ee" opacity="0.3"/>
-                <path d="M-12,-12 L12,12 M-12,12 L12,-12" stroke="#4361ee" strokeWidth="3.5"/>
-                <path d="M0,-15 L0,-25 M0,15 L0,25 M-15,0 L-25,0 M15,0 L25,0" stroke="#4361ee" strokeWidth="2"/>
-              </g>
-            </g>
-            
-            {/* Text Elements - Larger and more prominent */}
-            <text x="250" y="85" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="42">
-              <tspan fill="#4361ee">Save</tspan><tspan fill="#3a0ca3">My</tspan><tspan fill="#4361ee">Career</tspan><tspan fill="#3a0ca3">.ai</tspan>
-            </text>
-          </svg>
-        </Link>
-
-        {/* Mobile Menu Button */}
-        <button 
-          onClick={toggleMobileMenu}
-          className="md:hidden focus:outline-none"
-          aria-label="Toggle menu"
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-6 w-6" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center">
-          <div className="flex items-center">
-            <Link href="/" className="px-4 hover:text-blue-500 transition-colors">
-              {t('home')}
-            </Link>
-            
-            <Link href="/career-assessment" className="px-4 hover:text-blue-500 transition-colors">
-              {t('ai_impact')}
-            </Link>
-
-            <Link href="/career-finder" className="px-4 hover:text-blue-500 transition-colors">
-              {t('career_discovary')}
-            </Link>
-            
-            {/* Blog Link */}
-            <Link href="/blogs" className="px-4 hover:text-blue-500 transition-colors">
-              {t('blog')}
-            </Link>
+              {/* Hamburger Menu */}
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="relative p-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
+              >
+                <svg 
+                  className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? 'rotate-45' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  {isMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
 
-          {/* Enhanced Language Switcher - With proper spacing from nav links */}
-          <button 
-            data-locale={switchTo} 
-            onClick={changeLang} 
-            className={`flex items-center  cursor-pointer px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 text-blue-600 transition-colors ${isArabic ? 'mr-4' : 'ml-4'}`}
-          >
-            <span className={`flex w-5 h-5 overflow-hidden rounded-full border border-gray-200 ${isArabic ? 'ml-2' : 'mr-2'}`}>
-              <Image 
-                src={isArabic ? '/images/lang-en.png' : '/images/lang-ar.png'} 
-                alt={switchLabel} 
-                width={20} 
-                height={20}
-                className="object-cover"
-              />
-            </span>
-            <span className="text-sm font-medium">{switchLabel}</span>
-          </button>
-        </nav>
-      </div>
+          {/* Mobile Menu */}
+          <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'
+          }`}>
+            <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 p-4">
+              <nav className="space-y-2">
+                {navigationItems.map((item) => (
+                  <div key={item.href}>
+                    {item.onClick ? (
+                      <button
+                        onClick={item.onClick}
+                        className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 text-left"
+                      >
+                        <span className="text-xl">{item.icon}</span>
+                        <span className="text-gray-700 font-medium">{item.label}</span>
+                      </button>
+                    ) : (
+                      <Link href={item.href}>
+                        <div 
+                          className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <span className="text-xl">{item.icon}</span>
+                          <span className="text-gray-700 font-medium">{item.label}</span>
+                        </div>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </nav>
+            </div>
+          </div>
+        </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 dark:border-gray-800">
-          <div className="max-w-4xl mx-auto px-4 py-2 flex flex-col">
-            <Link 
-              href="/" 
-              className="py-2 hover:text-blue-500 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('home')}
-            </Link>
-            
-            <Link 
-              href="/career-assessment" 
-              className="py-2 hover:text-blue-500 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('ai_impact')}
-            </Link>
+        {/* Premium gradient border */}
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 opacity-50"></div>
+      </header>
 
-            <Link 
-              href="/career-finder" 
-              className="py-2 hover:text-blue-500 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('career_discovary')}
-            </Link>
-            
-            {/* Blog Link */}
-            <Link 
-              href="/blogs" 
-              className="py-2 hover:text-blue-500 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('blog')}
-            </Link>
+      {/* Email Modal */}
+      <EmailModal
+        isOpen={isEmailModalOpen}
+        onClose={() => {
+          setIsEmailModalOpen(false);
+          setSubmitMessage('');
+          setMessageType('');
+          setShowMessage(false);
+        }}
+        onSubmit={handleEmailSubmit}
+        isSubmitting={isSubmitting}
+        submitMessage={submitMessage}
+        messageType={messageType}
+        showMessage={showMessage}
+      />
 
-            {/* Enhanced Mobile Language Switcher */}
-            <button 
-              data-locale={switchTo} 
-              onClick={(e) => {
-                changeLang(e);
-                setMobileMenuOpen(false);
-              }} 
-              className="flex items-center  cursor-pointer py-2 px-3 mt-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-600 transition-colors self-start"
+      {/* Global Success/Error Toast */}
+      {showMessage && submitMessage && (
+        <div className={`fixed top-4 right-4 z-50 max-w-md p-4 rounded-lg shadow-lg border transition-all duration-300 transform ${
+          showMessage ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
+        } ${
+          messageType === 'success' 
+            ? 'bg-green-50 border-green-200 text-green-800' 
+            : 'bg-red-50 border-red-200 text-red-800'
+        }`}>
+          <div className="flex items-start space-x-3">
+            <div className="flex-shrink-0">
+              {messageType === 'success' ? (
+                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              )}
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-medium">{submitMessage}</p>
+            </div>
+            <button
+              onClick={() => {
+                setShowMessage(false);
+                setSubmitMessage('');
+              }}
+              className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
             >
-              <span className={`flex w-5 h-5 overflow-hidden rounded-full border border-gray-200 ${isArabic ? 'ml-2' : 'mr-2'}`}>
-                <Image 
-                  src={isArabic ? '/images/lang-en.png' : '/images/lang-ar.png'} 
-                  alt={switchLabel} 
-                  width={20} 
-                  height={20}
-                  className="object-cover"
-                />
-              </span>
-              <span className="text-sm font-medium">{switchLabel}</span>
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
             </button>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
