@@ -28,11 +28,11 @@ export function generateStaticParams() {
 } 
 
 export const metadata: Metadata = {
-  title: "SaveMyCareer.ai", 
-  description: "Learn actionable strategies to stay ahead in the age of automation",
+  title: "SaveMyCareer.ai | Most Trusted AI Career Data", 
+  description: "Get monthly insights on how AI is transforming your industry and career path.",
   icons: {
     icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    apple: '/apple-touch-icon.png', 
     // Add other sizes if needed
   },
 };
