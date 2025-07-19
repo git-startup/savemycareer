@@ -121,10 +121,17 @@ export default function Header() {
   return (
     <>
       <header className="relative bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            {/* Premium Logo */}
-            <PremiumLogo size="large" showTagline={true} animate={true} />
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 py-2 sm:py-3 lg:py-4">
+          <div className="flex justify-between items-center min-h-[60px] sm:min-h-[70px]">
+            {/* Premium Logo - Responsive sizing */}
+            <div className="flex-shrink-0 min-w-0 max-w-[60%] sm:max-w-none">
+              <PremiumLogo 
+                size="large" 
+                showTagline={false} 
+                animate={true} 
+                className="scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100 origin-left"
+              />
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">
@@ -133,11 +140,11 @@ export default function Header() {
                   {item.onClick ? (
                     <button
                       onClick={item.onClick}
-                      className="group relative px-4 py-2 rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50"
+                      className="group relative px-3 xl:px-4 py-2 rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50"
                     >
                       <div className="flex items-center space-x-2">
-                        <span className="text-lg">{item.icon}</span>
-                        <span className="text-gray-700 group-hover:text-blue-600 font-medium transition-colors duration-300">
+                        <span className="text-base xl:text-lg">{item.icon}</span>
+                        <span className="text-gray-700 group-hover:text-blue-600 font-medium transition-colors duration-300 text-sm xl:text-base">
                           {item.label}
                         </span>
                       </div>
@@ -147,10 +154,10 @@ export default function Header() {
                     </button>
                   ) : (
                     <Link href={item.href}>
-                      <div className="group relative px-4 py-2 rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50">
+                      <div className="group relative px-3 xl:px-4 py-2 rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50">
                         <div className="flex items-center space-x-2">
-                          <span className="text-lg">{item.icon}</span>
-                          <span className="text-gray-700 group-hover:text-blue-600 font-medium transition-colors duration-300">
+                          <span className="text-base xl:text-lg">{item.icon}</span>
+                          <span className="text-gray-700 group-hover:text-blue-600 font-medium transition-colors duration-300 text-sm xl:text-base">
                             {item.label}
                           </span>
                         </div>
@@ -164,47 +171,58 @@ export default function Header() {
               ))}
               
               {/* Language Switcher */}
-              <div className="ml-6 pl-6 border-l border-gray-200">
+              <div className="ml-4 xl:ml-6 pl-4 xl:pl-6 border-l border-gray-200">
                 <button 
                   onClick={changeLang}
                   data-locale={switchTo}
-                  className="group flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-blue-50 hover:to-purple-50 border border-gray-200 hover:border-blue-200 transition-all duration-300"
+                  className="group flex items-center space-x-2 px-3 xl:px-4 py-2 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-blue-50 hover:to-purple-50 border border-gray-200 hover:border-blue-200 transition-all duration-300"
                 >
-                  <div className="w-6 h-6 rounded-full overflow-hidden border-2 border-gray-300 group-hover:border-blue-400 transition-colors duration-300">
+                  <div className="w-5 xl:w-6 h-5 xl:h-6 rounded-full overflow-hidden border-2 border-gray-300 group-hover:border-blue-400 transition-colors duration-300 flex-shrink-0">
                     <Image 
                       src={langIcon} 
                       alt={switchLabel} 
                       width={24} 
                       height={24} 
-                      className="object-cover"
+                      className="object-cover w-full h-full"
                     />
                   </div>
-                  <span className="text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors duration-300">
+                  <span className="text-xs xl:text-sm font-medium text-gray-700 group-hover:text-blue-600 transition-colors duration-300 whitespace-nowrap">
                     {switchLabel}
                   </span>
                 </button>
               </div>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center space-x-4">
+            {/* Mobile Controls */}
+            <div className="lg:hidden flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
               {/* Mobile Language Switcher */}
               <button 
                 onClick={changeLang}
                 data-locale={switchTo}
-                className="flex items-center space-x-1 px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
+                className="flex items-center space-x-1 px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300 flex-shrink-0 min-w-0"
               >
-                <Image src={langIcon} alt={switchLabel} width={20} height={20} />
-                <span className="text-sm font-medium text-gray-700">{switchLabel}</span>
+                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full overflow-hidden flex-shrink-0">
+                  <Image 
+                    src={langIcon} 
+                    alt={switchLabel} 
+                    width={20} 
+                    height={20} 
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap hidden xs:inline">
+                  {switchLabel}
+                </span>
               </button>
               
               {/* Hamburger Menu */}
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="relative p-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
+                className="relative p-1.5 sm:p-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-lg flex-shrink-0"
+                aria-label="Toggle menu"
               >
                 <svg 
-                  className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? 'rotate-45' : ''}`} 
+                  className={`w-5 sm:w-6 h-5 sm:h-6 transition-transform duration-300 ${isMenuOpen ? 'rotate-45' : ''}`} 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -220,29 +238,29 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu */}
-          <div className={`lg:hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'
+          <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+            isMenuOpen ? 'max-h-96 opacity-100 mt-2 sm:mt-3' : 'max-h-0 opacity-0'
           }`}>
-            <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 p-4">
-              <nav className="space-y-2">
+            <div className="bg-white/95 backdrop-blur-md rounded-lg sm:rounded-xl shadow-xl border border-gray-200 p-2 sm:p-3">
+              <nav className="space-y-1">
                 {navigationItems.map((item) => (
                   <div key={item.href}>
                     {item.onClick ? (
                       <button
                         onClick={item.onClick}
-                        className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 text-left"
+                        className="w-full flex items-center space-x-2 sm:space-x-3 px-3 py-2 sm:py-2.5 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300 text-left"
                       >
-                        <span className="text-xl">{item.icon}</span>
-                        <span className="text-gray-700 font-medium">{item.label}</span>
+                        <span className="text-base sm:text-lg flex-shrink-0">{item.icon}</span>
+                        <span className="text-gray-700 font-medium text-sm sm:text-base truncate">{item.label}</span>
                       </button>
                     ) : (
                       <Link href={item.href}>
                         <div 
-                          className="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
+                          className="flex items-center space-x-2 sm:space-x-3 px-3 py-2 sm:py-2.5 rounded-lg hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          <span className="text-xl">{item.icon}</span>
-                          <span className="text-gray-700 font-medium">{item.label}</span>
+                          <span className="text-base sm:text-lg flex-shrink-0">{item.icon}</span>
+                          <span className="text-gray-700 font-medium text-sm sm:text-base truncate">{item.label}</span>
                         </div>
                       </Link>
                     )}
@@ -273,38 +291,39 @@ export default function Header() {
         showMessage={showMessage}
       />
 
-      {/* Global Success/Error Toast */}
+      {/* Global Success/Error Toast - Responsive */}
       {showMessage && submitMessage && (
-        <div className={`fixed top-4 right-4 z-50 max-w-md p-4 rounded-lg shadow-lg border transition-all duration-300 transform ${
+        <div className={`fixed top-2 sm:top-4 right-2 sm:right-4 left-2 sm:left-auto z-50 sm:max-w-md p-2 sm:p-3 rounded-lg shadow-lg border transition-all duration-300 transform ${
           showMessage ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0'
         } ${
           messageType === 'success' 
             ? 'bg-green-50 border-green-200 text-green-800' 
             : 'bg-red-50 border-red-200 text-red-800'
         }`}>
-          <div className="flex items-start space-x-3">
-            <div className="flex-shrink-0">
+          <div className="flex items-start space-x-2">
+            <div className="flex-shrink-0 mt-0.5">
               {messageType === 'success' ? (
-                <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               ) : (
-                <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                 </svg>
               )}
             </div>
-            <div className="flex-1">
-              <p className="text-sm font-medium">{submitMessage}</p>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-medium break-words leading-tight">{submitMessage}</p>
             </div>
             <button
               onClick={() => {
                 setShowMessage(false);
                 setSubmitMessage('');
               }}
-              className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+              className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200 p-0.5"
+              aria-label="Close notification"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </button>
