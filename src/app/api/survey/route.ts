@@ -4,9 +4,9 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+     
     // Validate required fields
-    const requiredFields = ['name', 'email', 'dateOfBirth', 'currentCareer', 'currentLocation', 'aiUsageFrequency', 'aiHelpfulness', 'aiToolsUsed'];
+    const requiredFields = ['name', 'email', 'age', 'currentCareer', 'currentLocation', 'aiUsageFrequency', 'aiHelpfulness', 'aiActivities', 'aiToolsUsed'];
     const missingFields = requiredFields.filter(field => !body[field] || (Array.isArray(body[field]) && body[field].length === 0));
     
     if (missingFields.length > 0) {
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     const surveyData = {
       name: body.name,
       email: body.email,
-      date_of_birth: body.dateOfBirth,
+      age: body.age,
       current_career: body.currentCareer,
       current_location: body.currentLocation,
       current_employer: body.currentEmployer || null,
@@ -53,6 +53,7 @@ export async function POST(request: Request) {
       ai_usage_frequency: body.aiUsageFrequency,
       ai_helpfulness: body.aiHelpfulness,
       ai_tools_used: Array.isArray(body.aiToolsUsed) ? body.aiToolsUsed : [],
+      ai_activities: Array.isArray(body.aiActivities) ? body.aiActivities : [],
       most_used_ai_tool: body.mostUsedAiTool || null,
       ai_impact_on_job: body.aiImpactOnJob || null,
       work_from_home: body.workFromHome || null,

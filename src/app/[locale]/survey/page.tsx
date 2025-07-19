@@ -10,7 +10,7 @@ import { useTranslations, useLocale } from "next-intl";
 interface SurveyData {
   name: string;
   email: string;
-  dateOfBirth: string;
+  age: string; // Changed from dateOfBirth to age
   currentCareer: string;
   currentLocation: string;
   currentEmployer: string;
@@ -18,6 +18,7 @@ interface SurveyData {
   aiUsageFrequency: string;
   aiHelpfulness: string;
   aiToolsUsed: string[];
+  aiActivities: string[]; // New field for AI activities
   mostUsedAiTool: string;
   aiImpactOnJob: string;
   workFromHome: string;
@@ -32,7 +33,7 @@ interface SurveyData {
 const initialSurveyData: SurveyData = {
   name: '',
   email: '',
-  dateOfBirth: '',
+  age: '', // Changed from dateOfBirth to age
   currentCareer: '',
   currentLocation: '',
   currentEmployer: '',
@@ -40,6 +41,7 @@ const initialSurveyData: SurveyData = {
   aiUsageFrequency: '',
   aiHelpfulness: '',
   aiToolsUsed: [],
+  aiActivities: [], // Initialize new field
   mostUsedAiTool: '',
   aiImpactOnJob: '',
   workFromHome: '',
@@ -88,6 +90,21 @@ export default function SurveyPage() {
     'Grammarly', 'Jasper', 'Copy.ai', 'Canva AI', 'Adobe Firefly',
     'Tableau AI', 'DataRobot', 'H2O.ai', 'Slack AI', 'Zoom AI', 'Notion AI', 'Midjourney',
     'Other'
+  ];
+
+  // AI Activities list - New addition
+  const aiActivities = locale === 'ar' ? [
+    'كتابة النصوص والمحتوى', 'تحرير وتدقيق النصوص', 'ترجمة النصوص', 'إنشاء الصور والتصاميم',
+    'تحليل البيانات', 'البرمجة وكتابة الكود', 'البحث والتحليل', 'إنشاء العروض التقديمية',
+    'كتابة رسائل البريد الإلكتروني', 'إنشاء ملخصات', 'حل المشاكل التقنية', 'التخطيط والتنظيم',
+    'تعلم مهارات جديدة', 'إنشاء المحتوى التسويقي', 'تحليل النصوص والوثائق', 'إنشاء الجداول والتقارير',
+    'العصف الذهني والأفكار', 'مراجعة وتحسين المحتوى', 'أنشطة أخرى'
+  ] : [
+    'Writing and content creation', 'Editing and proofreading', 'Translation', 'Image and design generation',
+    'Data analysis', 'Programming and coding', 'Research and analysis', 'Creating presentations',
+    'Writing emails', 'Summarization', 'Technical troubleshooting', 'Planning and organization',
+    'Learning new skills', 'Marketing content creation', 'Document analysis', 'Creating spreadsheets and reports',
+    'Brainstorming and ideation', 'Content review and improvement', 'Other activities'
   ];
 
   // Force light theme
@@ -153,9 +170,19 @@ export default function SurveyPage() {
   const handleCheckboxChange = (tool: string) => {
     setSurveyData(prev => ({
       ...prev,
-      aiToolsUsed: prev.aiToolsUsed.includes(tool)
-        ? prev.aiToolsUsed.filter(t => t !== tool)
-        : [...prev.aiToolsUsed, tool]
+      aiToolsUsed: (prev.aiToolsUsed || []).includes(tool)
+        ? (prev.aiToolsUsed || []).filter(t => t !== tool)
+        : [...(prev.aiToolsUsed || []), tool]
+    }));
+  };
+
+  // New function for handling AI activities checkbox changes
+  const handleActivityCheckboxChange = (activity: string) => {
+    setSurveyData(prev => ({
+      ...prev,
+      aiActivities: (prev.aiActivities || []).includes(activity)
+        ? (prev.aiActivities || []).filter(a => a !== activity)
+        : [...(prev.aiActivities || []), activity]
     }));
   };
 
@@ -175,11 +202,12 @@ export default function SurveyPage() {
   const validateStep = (step: number): boolean => {
     switch (step) {
       case 1:
-        return !!(surveyData.name && surveyData.email && surveyData.dateOfBirth && 
+        return !!(surveyData.name && surveyData.email && surveyData.age && 
                  surveyData.currentCareer && surveyData.currentLocation);
       case 2:
         return !!(surveyData.aiUsageFrequency && surveyData.aiHelpfulness && 
-                 surveyData.aiToolsUsed.length > 0);
+                 surveyData.aiToolsUsed && surveyData.aiToolsUsed.length > 0 && 
+                 surveyData.aiActivities && surveyData.aiActivities.length > 0);
       case 3:
         return !!(surveyData.mostUsedAiTool && surveyData.aiImpactOnJob && 
                  surveyData.yearsExperience);
@@ -412,17 +440,24 @@ export default function SurveyPage() {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
-                    {t('dob_label')} {t('required_field')}
+                    {t('age_label')} {t('required_field')}
                   </label>
                   <div className="relative">
-                    <input
-                      type="date"
-                      name="dateOfBirth"
-                      value={surveyData.dateOfBirth}
+                    <select
+                      name="age"
+                      value={surveyData.age}
                       onChange={handleInputChange}
                       className={`w-full px-3 sm:px-4 py-3 sm:py-4 bg-white/60 backdrop-blur-sm border border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md text-sm sm:text-base ${locale === 'ar' ? 'text-right' : ''}`}
                       required
-                    />
+                    >
+                      <option value="">{t('age_placeholder')}</option>
+                      <option value="18-24">{t('age_18_24')}</option>
+                      <option value="25-34">{t('age_25_34')}</option>
+                      <option value="35-44">{t('age_35_44')}</option>
+                      <option value="45-54">{t('age_45_54')}</option>
+                      <option value="55-64">{t('age_55_64')}</option>
+                      <option value="65+">{t('age_65_plus')}</option>
+                    </select>
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-lg sm:rounded-xl pointer-events-none"></div>
                   </div>
                 </div>
@@ -615,18 +650,45 @@ export default function SurveyPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
                     {aiTools.map((tool) => (
                       <label key={tool} className={`group flex items-center ${locale === 'ar' ? 'flex-row-reverse' : ''} p-2 sm:p-3 bg-white/40 backdrop-blur-sm border border-gray-200 rounded-lg sm:rounded-xl cursor-pointer transition-all duration-300 hover:shadow-md hover:scale-[1.01] sm:hover:scale-[1.02] ${
-                        surveyData.aiToolsUsed.includes(tool) 
+                        (surveyData.aiToolsUsed || []).includes(tool) 
                           ? 'border-indigo-500 bg-gradient-to-r from-indigo-50 to-blue-50 shadow-md' 
                           : 'hover:border-indigo-300'
                       }`}>
                         <input 
                           type="checkbox" 
-                          checked={surveyData.aiToolsUsed.includes(tool)}
+                          checked={(surveyData.aiToolsUsed || []).includes(tool)}
                           onChange={() => handleCheckboxChange(tool)}
                           className="h-3 sm:h-4 w-3 sm:w-4 text-indigo-500 focus:ring-indigo-500 border-gray-300 rounded" 
                         />
                         <span className={`text-xs sm:text-sm text-gray-700 font-medium group-hover:text-indigo-600 transition-colors duration-200 ${locale === 'ar' ? 'mr-1.5 sm:mr-2 text-right' : 'ml-1.5 sm:ml-2'} break-words`}>
                           {tool}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* NEW AI Activities Question */}
+                <div>
+                  <label className="block text-base sm:text-lg font-semibold text-gray-700 mb-4 sm:mb-6">
+                    {t('ai_activities_label')} {t('required_field')}
+                    <span className="text-gray-500 font-normal text-xs sm:text-sm ml-2">{t('select_all_apply')}</span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+                    {aiActivities.map((activity) => (
+                      <label key={activity} className={`group flex items-center ${locale === 'ar' ? 'flex-row-reverse' : ''} p-2 sm:p-3 bg-white/40 backdrop-blur-sm border border-gray-200 rounded-lg sm:rounded-xl cursor-pointer transition-all duration-300 hover:shadow-md hover:scale-[1.01] sm:hover:scale-[1.02] ${
+                        (surveyData.aiActivities || []).includes(activity) 
+                          ? 'border-teal-500 bg-gradient-to-r from-teal-50 to-cyan-50 shadow-md' 
+                          : 'hover:border-teal-300'
+                      }`}>
+                        <input 
+                          type="checkbox" 
+                          checked={(surveyData.aiActivities || []).includes(activity)}
+                          onChange={() => handleActivityCheckboxChange(activity)}
+                          className="h-3 sm:h-4 w-3 sm:w-4 text-teal-500 focus:ring-teal-500 border-gray-300 rounded" 
+                        />
+                        <span className={`text-xs sm:text-sm text-gray-700 font-medium group-hover:text-teal-600 transition-colors duration-200 ${locale === 'ar' ? 'mr-1.5 sm:mr-2 text-right' : 'ml-1.5 sm:ml-2'} break-words`}>
+                          {activity}
                         </span>
                       </label>
                     ))}
