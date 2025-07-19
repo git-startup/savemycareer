@@ -511,11 +511,10 @@ export default function AboutPage() {
                 </button>
               </Link>
               
-              <Link href="/reports">
-                <button className="bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white font-semibold py-4 px-8 rounded-2xl hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <button onClick={handleReportsClick}  className="bg-white/20 backdrop-blur-sm border-2 border-white/30 text-white font-semibold py-4 px-8 rounded-2xl hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                   {t('cta.buttons.reports')}
                 </button>
-              </Link>
+      
             </div>
           </div>
         </section>
